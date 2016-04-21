@@ -15,7 +15,7 @@ npm install eslint-config-blueflag
 
 ## Global linters (Sublime Linter)
 
-If your linter cant handle using the current directory to find binaries you will need to install 
+If your linter can't handle using the current directory to find binaries you will need to install 
 the plugins globally. **Make sure you install eslint 2.4.0 though. The babel parser is having issues with 
 later versions.**
 

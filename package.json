@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-blueflag",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git@github.com:blueflag/eslint-config-blueflag.git"
@@ -8,11 +8,15 @@
   "bugs": {
     "url": "https://github.com/blueflag/eslint-config-blueflag/issues"
   },
-  "homepage": "https://github.com/blueflag/eslint-config-blueflag","main": "index.js",
+  "homepage": "https://github.com/blueflag/eslint-config-blueflag",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["eslint", "eslintconfig"],
+  "keywords": [
+    "eslint",
+    "eslintconfig"
+  ],
   "author": "Allan hortle",
   "license": "ISC",
   "dependencies": {

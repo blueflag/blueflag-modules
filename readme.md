@@ -9,7 +9,10 @@ npm install eslint-config-blueflag
 ```js
 // .eslintrc
 {
-    "extends": "eslint-config-blueflag"
+    "extends": [
+        "eslint-config-blueflag",
+        "eslint-config-blueflag/flow.js" // With flow types
+    ]
 }
 ```
 
@@ -20,10 +23,13 @@ the plugins globally. **Make sure you install eslint 2.4.0 though. The babel par
 later versions.**
 
 ```sh
+# Defaults
 # eslint@2.4.0
+# eslint-plugin-react
+# 
+# Flow Types
 # eslint-plugin-flow-vars
 # eslint-plugin-flowtype
-# eslint-plugin-react
 
 # one liner
 npm install -g eslint@2.4.0 eslint-plugin-flow-vars eslint-plugin-flowtype eslint-plugin-react

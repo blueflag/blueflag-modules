@@ -8,15 +8,11 @@
   "bugs": {
     "url": "https://github.com/blueflag/eslint-config-blueflag/issues"
   },
-  "homepage": "https://github.com/blueflag/eslint-config-blueflag",
-  "main": "index.js",
+  "homepage": "https://github.com/blueflag/eslint-config-blueflag","main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "eslint",
-    "eslintconfig"
-  ],
+  "keywords": ["eslint", "eslintconfig"],
   "author": "Allan hortle",
   "license": "ISC",
   "dependencies": {
@@ -24,7 +20,6 @@
     "eslint": "2.4.0",
     "eslint-plugin-flow-vars": "^0.3.0",
     "eslint-plugin-flowtype": "^2.2.6",
-    "eslint-plugin-react": "^5.0.1",
-    "estraverse-fb": "^1.3.1"
+    "eslint-plugin-react": "^5.0.1"
   }
 }

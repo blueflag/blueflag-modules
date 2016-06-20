@@ -35,3 +35,39 @@ later versions.**
 npm install -g eslint@2.4.0 eslint-plugin-flow-vars eslint-plugin-flowtype eslint-plugin-react
 
 ```
+
+
+# Style Guide
+
+
+## JSX
+
+### Return JSX elements directly
+
+```jsx
+// Good
+return <ul className="List">
+    <li>list items</li>
+    <li>list items</li>
+</ul>;
+
+// Bad
+return (
+    <ul className="List">
+        <li>list items</li>
+        <li>list items</li>
+    </ul>
+);
+```
+
+### Use self-closing tags for elements without children
+```jsx
+// Good
+return <span />;
+
+// Bad
+return <span></span>;
+```
+
+
+

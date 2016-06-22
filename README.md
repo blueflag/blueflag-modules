@@ -1,2 +1,2 @@
 # babel-preset-blueflag
-A preset for Blueflag's oppinions on babel plugins
+A preset for Blue Flag's oppinions on babel plugins

@@ -82,16 +82,16 @@ return <ExampleComponent
     title="Example"
     author="Robert">
     <p>Child elements</p>
-</Example>;
+</ExampleComponent>;
 
 // Bad
 return <ExampleComponent title="Example"
     description="Hello"
 >
     <p>Child elements</p>
-</Example>;
+</ExampleComponent>;
 ```
 
 #### Find and replace
-Find: `\s+?$\s+?(/?>)(\s+?)`
+Find: `\s+?$\s+?(/?>;?)(\s*?)`
 Replace: `$1\n` and then fix up indentation

@@ -73,7 +73,7 @@ return <span />;
 return <span></span>;
 ```
 
-### Multiple line components should have each prop on a new line beneath the component name, 4 spaces indented in from the indentation of the first line
+### Multiple line components should have each prop on a new line, indented once
 
 ```jsx
 // Good
@@ -91,6 +91,12 @@ return <ExampleComponent
 return <ExampleComponent title="Example"
     description="Hello"
 >
+    <p>Child elements</p>
+</ExampleComponent>;
+
+return <ExampleComponent
+        title="Example"
+        description="Hello">
     <p>Child elements</p>
 </ExampleComponent>;
 ```

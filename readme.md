@@ -104,3 +104,25 @@ return <ExampleComponent
 #### Find and replace
 Find: `\s+?$\s+?(/?>;?)(\s*?)`
 Replace: `$1\n` and then fix up indentation
+
+## JS
+
+### Chains of functions should be indented by 4 spaces
+
+```
+// Good
+return fromJS(list)
+    .map(ii => ii.get('id'))
+    .sort()
+    .toJS();
+
+// Bad
+return fromJS(list).map(ii => ii.get('id')).sort().toJS();
+
+return fromJS(list)
+       .map(ii => ii.get('id'))
+       .sort()
+       .toJS();
+
+
+```

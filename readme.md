@@ -39,7 +39,6 @@ npm install -g eslint@2.4.0 eslint-plugin-flow-vars eslint-plugin-flowtype eslin
 
 # Style Guide
 
-
 ## JSX
 
 ### Return JSX elements directly
@@ -83,6 +82,10 @@ return <ExampleComponent
     author="Robert">
     <p>Child elements</p>
 </ExampleComponent>;
+
+return <ExampleComponent
+    title="Example"
+    author="Robert" />
 
 // Bad
 return <ExampleComponent title="Example"

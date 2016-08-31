@@ -60,6 +60,11 @@ return (
 );
 ```
 
+####Find and replace
+Find: `return(\s+?)\((\s+?)<`
+
+Automatic find and replaces are hard for this. You can replace `return(\s+?)\((\s+?)<` with `return <`, find the closing `);` and replace it with `;` and de-indent all lines between.
+
 ### Use self-closing tags for elements without children
 ```jsx
 // Good

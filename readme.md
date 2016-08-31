@@ -74,5 +74,24 @@ return <span />;
 return <span></span>;
 ```
 
+### Multiple line components should have each prop on a new line beneath the component name, 4 spaces indented in from the indentation of the first line
 
+```jsx
+// Good
+return <ExampleComponent
+    title="Example"
+    author="Robert">
+    <p>Child elements</p>
+</Example>;
 
+// Bad
+return <ExampleComponent title="Example"
+    description="Hello"
+>
+    <p>Child elements</p>
+</Example>;
+```
+
+#### Find and replace
+Find: `\s+?$\s+?(/?>)(\s+?)`
+Replace: `$1\n` and then fix up indentation

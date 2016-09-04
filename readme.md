@@ -109,7 +109,7 @@ Replace: `$1\n` and then fix up indentation
 
 ### Chains of functions should be indented by 4 spaces
 
-```
+```jsx
 // Good
 return fromJS(list)
     .map(ii => ii.get('id'))
@@ -125,4 +125,41 @@ return fromJS(list)
        .toJS();
 
 
+```
+
+## Naming
+
+### Filenames should use TitleCase
+
+```jsx
+// Good
+Button.jsx
+CreateRoutes.js
+
+// Bad
+button.jsx
+createRoutes.js
+```
+
+### Folders should always be camelCase
+
+```jsx
+// Good
+src/users/
+src/learningPlan/
+
+// Bad
+src/Users/
+src/learning_plan/
+```
+
+### Route paths should be kebab-case
+
+```jsx
+// Good
+http://example.com/free-hugs
+
+// Bad
+http://example.com/freeHugs
+http://example.com/free_hugs
 ```

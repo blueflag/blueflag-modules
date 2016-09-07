@@ -127,6 +127,16 @@ return fromJS(list)
 
 ```
 
+### Named imports should have spaces between braces and words
+
+```jsx
+// Good
+import React, { Component, Children } from 'react';
+
+// Bad
+import React, {Component, Children} from 'react';
+```
+
 ## Naming
 
 ### Filenames should use TitleCase

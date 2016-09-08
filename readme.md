@@ -127,14 +127,14 @@ return fromJS(list)
 
 ```
 
-### Named imports should have spaces between braces and words
+### Named imports should not have spaces between braces and words
 
 ```jsx
 // Good
-import React, { Component, Children } from 'react';
+import React, {Component, Children} from 'react';
 
 // Bad
-import React, {Component, Children} from 'react';
+import React, { Component, Children } from 'react';
 ```
 
 ## Naming

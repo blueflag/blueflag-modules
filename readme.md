@@ -173,3 +173,12 @@ http://example.com/free-hugs
 http://example.com/freeHugs
 http://example.com/free_hugs
 ```
+
+# Errors
+
+### "Expected string but got object"
+Often caused by a `require()` requiring a file that's using `export default`. Ensure all `require()`s of components with `export default` use `import` instead.
+
+
+### "inst.render is not a function"
+In React <0.15 this can happen when functional components try to return null. They must return an empty `<span/>` instead. This has been fixed as of React 0.15

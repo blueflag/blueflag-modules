@@ -174,6 +174,35 @@ http://example.com/freeHugs
 http://example.com/free_hugs
 ```
 
+### Action Names should follow `SEGMENT_NOUN_VERB`
+Underscores are reserved for the division of concept not word spaces
+
+```js
+// Good
+COURSE_ASSIGNEE_CHANGE
+COURSE_DEFAULTASSIGNEE_CHANGE
+
+
+// Bad
+COURSECHANGE
+CHANGE_COURSE_DEFAULT_ASSIGNEE
+CHANGE_COURSE
+courseChange
+```
+
+### Action Creators should be lowerCamelCase of ActionName
+```js
+// Good COURSE_ASSIGNEE_CHANGE
+courseAssigneeChange()
+
+// Bad COURSE_ASSIGNEE_CHANGE
+changeCourseAssignee()
+dispatchCourseAssignee()
+COURSE_ASSIGNEE_CHANGE()
+
+
+```
+
 # Errors
 
 ### "Expected string but got object"

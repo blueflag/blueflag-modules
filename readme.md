@@ -139,6 +139,8 @@ import React, { Component, Children } from 'react';
 
 ## Naming
 
+* Never pluralize.
+
 ### Filenames should use TitleCase
 
 ```jsx

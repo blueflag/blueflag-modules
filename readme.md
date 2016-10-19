@@ -32,7 +32,7 @@ later versions.**
 # eslint-plugin-flowtype
 
 # one liner
-npm install -g eslint@2.4.0 eslint-plugin-flow-vars eslint-plugin-flowtype eslint-plugin-react babel-eslint
+npm install -g eslint@2.4.0 eslint-plugin-flow-vars eslint-plugin-flowtype eslint-plugin-react@5.0.1 babel-eslint
 
 ```
 

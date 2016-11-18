@@ -79,13 +79,15 @@ return <span></span>;
 // Good
 return <ExampleComponent
     title="Example"
-    author="Robert">
+    author="Robert"
+>
     <p>Child elements</p>
 </ExampleComponent>;
 
 return <ExampleComponent
     title="Example"
-    author="Robert" />
+    author="Robert"
+/>
 
 // Bad
 return <ExampleComponent title="Example"

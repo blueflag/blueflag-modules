@@ -2,6 +2,9 @@ module.exports = {
     plugins: [
         "react"
     ],
+    "extends": [
+        "plugin:react/recommended",
+    ],
     rules: {
         // React
         'react/no-danger': 0,

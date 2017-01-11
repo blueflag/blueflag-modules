@@ -10,5 +10,5 @@ module.exports = {
         .concat(es2016.plugins)
         .concat(es2017.plugins)
         .concat(stage3.plugins)
-        .concat(react.plugins);
+        .concat(react.plugins)
 }

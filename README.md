@@ -17,9 +17,10 @@ npm install --save babel-preset-blueflag
 
 ## Plugins & Presets
 ```
+babel-plugin-transform-runtime
 babel-preset-es2015
 babel-preset-es2016
 babel-preset-es2017
-babel-preset-stage-3
 babel-preset-react
+babel-preset-stage-3
  ```

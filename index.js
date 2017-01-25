@@ -4,6 +4,7 @@ var es2017 = require('babel-preset-es2017');
 var react = require('babel-preset-react');
 var stage3 = require('babel-preset-stage-3');
 var transformRuntime = require('babel-plugin-transform-runtime');
+var transfromClassProperties = require('babel-plugin-transform-class-properties');
 
 module.exports = {
     plugins: []
@@ -13,4 +14,5 @@ module.exports = {
         .concat(react.plugins)
         .concat(stage3.plugins)
         .concat(transformRuntime)
+        .concat(transfromClassProperties)
 }

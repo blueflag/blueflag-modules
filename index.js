@@ -8,11 +8,11 @@ var transfromClassProperties = require('babel-plugin-transform-class-properties'
 
 module.exports = {
     plugins: []
+        .concat(transfromClassProperties)
         .concat(es2015.plugins)
         .concat(es2016.plugins)
         .concat(es2017.plugins)
         .concat(react.plugins)
         .concat(stage3.plugins)
         .concat(transformRuntime)
-        .concat(transfromClassProperties)
 }

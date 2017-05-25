@@ -14,13 +14,21 @@ program
 
 program
     .command('modules')
-    .description('list symlink node modules');
+    .description('list symlink node modules and thier versions');
+
+program
+    .command('unstaged')
+    .description('list unstaged changes in symlinked node modules');
 
 program.parse(process.argv);
 
 switch (program.args[0]) {
     case 'modules':
         console.log('dr-symlink.modules');
+        break;
+
+    case 'unstaged':
+        console.log('dr-symlink.unstaged');
         break;
 
     default:

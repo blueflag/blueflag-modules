@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 
 // import fs from 'fs';
-
 // import chalk from 'chalk';
 import pkg from '../package.json';
 import program from 'commander';
+import unstaged from './unstaged';
+import modules from './modules';
 
 program
     .version(pkg.version)
@@ -24,11 +25,11 @@ program.parse(process.argv);
 
 switch (program.args[0]) {
     case 'modules':
-        console.log('dr-symlink.modules');
+        modules(program, {});
         break;
 
     case 'unstaged':
-        console.log('dr-symlink.unstaged');
+        unstaged(program, {});
         break;
 
     default:

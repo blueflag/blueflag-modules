@@ -98,6 +98,8 @@
     ]
   },
   "dependencies": {
-    "commander": "^2.9.0"
+    "commander": "^2.9.0",
+    "git-utils": "^5.0.0",
+    "staged-git-files": "^0.0.4"
   }
 }

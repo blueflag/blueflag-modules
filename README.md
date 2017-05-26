@@ -1,7 +1,8 @@
 # dr-symlink
 
-```
 
+
+```
   Usage: dr [options] [command]
 
 
@@ -14,5 +15,4 @@
 
     -h, --help     output usage information
     -V, --version  output the version number
-    
 ```

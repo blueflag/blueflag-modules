@@ -1,6 +1,13 @@
 # dr-symlink
 
+## Install
 
+```
+npm install -g dr-symlink
+```
+
+
+# Usage
 
 ```
   Usage: dr [options] [command]

@@ -9,7 +9,7 @@
     "lib"
   ],
   "name": "dr-symlink",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Symlink Diagnostic CLI",
   "license": "UNLICENSED",
   "author": "Allan Hortle",

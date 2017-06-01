@@ -60,9 +60,7 @@ The follow options are supported:
 ### `library`
 `boolean` - defaults to `false`.
 
-Whether the project to be transpiled is a library. If this is set to `true` along with `browser` then
-`babel-plugin-transform-runtime` will be disabled to avoid users of the library having the extra
-dependency.
+Doesn't do anything at the moment.
 
 ### `browser`
 `boolean` - defaults to `false`

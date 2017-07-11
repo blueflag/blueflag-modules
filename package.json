@@ -1,9 +1,7 @@
 {
   "main": "lib/index.js",
   "bin": {
-    "dr-symlink": "lib/index.js",
-    "sym": "lib/index.js",
-    "dr": "lib/index.js"
+    "dr-symlink": "lib/index.js"
   },
   "files": [
     "lib"

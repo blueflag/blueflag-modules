@@ -24,15 +24,7 @@ program
 program.parse(process.argv);
 
 switch (program.args[0]) {
-    case 'modules':
-        modules(program, {});
-        break;
-
-    case 'unstaged':
-        unstaged(program, {});
-        break;
-
     default:
-        console.log('dr-symlink');
+        modules(program, {});
         break;
 }

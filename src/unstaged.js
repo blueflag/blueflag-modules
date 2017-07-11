@@ -50,41 +50,49 @@ const unstagedMap = {
     [1 << 10]: 'TypeChange'
 };
 
+export default function unstaged({modulePath}) {
+    var repo = git.open(modulePath);
+    var status = repo.getStatus();
+    var ahead = repo.getAheadBehindCount();
+    var files = Object.keys(status)
+        .map(path => {
+            return {
+                staged: stagedMap[status[path]],
+                unstaged: unstagedMap[status[path]]
+            };
+        })
+        .reduce((count, item) => {
+            if(item.staged) {
+                count.staged++;
+            }
+            if(item.unstaged) {
+                count.unstaged++;
+            }
+            return count;
+        },{staged: 0, unstaged: 0});
 
+    // console.log(files.staged, files.unstaged);
+    var changes = Object.keys(files)
+        .filter(ii => files[ii] > 0)
+        .map(ii =>`${files[ii]} ${ii}`)
+        // .join(', ');
 
-export default function modules(program, config) {
-    recurseSymlinks(({file, version, modulePath}) => {
-        var repo = git.open(modulePath);
-        var status = repo.getStatus();
-        var ahead = repo.getAheadBehindCount();
-        var files = Object.keys(status)
-            .map(path => {
-                return {
-                    staged: stagedMap[status[path]],
-                    unstaged: unstagedMap[status[path]]
-                };
-            })
-            .reduce((count, item) => {
-                if(item.staged) {
-                    count.staged++;
-                }
-                if(item.unstaged) {
-                    count.unstaged++;
-                }
-                return count;
-            },{staged: 0, unstaged: 0});
+    var aheadBehind = Object.keys(ahead)
+        .filter(ii => ahead[ii] > 0)
+        .map(ii => chalk.green(`${ahead[ii]} ${ii}`))
+        // .join(', ');
 
-        // console.log(files.staged, files.unstaged);
-        var changes = Object.keys(files)
-            .filter(ii => files[ii] > 0)
-            .map(ii =>`${files[ii]} ${ii}`)
-            // .join(', ');
-
-        var aheadBehind = Object.keys(ahead)
-            .filter(ii => ahead[ii] > 0)
-            .map(ii => chalk.green(`${ahead[ii]} ${ii}`))
-            // .join(', ');
-
-        return file + chalk.grey(': ') + chalk.yellow(changes.concat(aheadBehind).join(', '));
-    })('.', []);
+    return {
+        changes,
+        aheadBehind
+    }
 }
+
+
+
+// export default function modules(program, config) {
+//     recurseSymlinks(({file, version, modulePath}) => {
+
+//         return file + chalk.grey(': ') + chalk.yellow(changes.concat(aheadBehind).join(', '));
+//     })('.', []);
+// }

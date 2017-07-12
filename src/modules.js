@@ -13,5 +13,5 @@ export default function modules(program, config) {
         const {changes, aheadBehind} = unstaged({modulePath});
         const gitStatus = changes.concat(aheadBehind).join(', ');
         return file + chalk.grey(`: ${chalk.yellow(version)}${gitStatus ? ` ${chalk.red(gitStatus)}` : ''}`);
-    })('.', []);
+    }, {program})('.', []);
 }

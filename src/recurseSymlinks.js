@@ -3,11 +3,13 @@
 import fs from 'fs';
 import path from 'path';
 import chalk from 'chalk';
+import {Try} from 'fronads';
 
-export default function recurseSymlinks(callback, log = true) {
+export default function recurseSymlinks(callback, options) {
     return function recurseNodeModules(currentPath, depth, parentWasLast) {
-
-        const nodeModules = path.resolve(currentPath,'node_modules');
+        const {log = true, program} = options;
+        const dir = program.dir && program.dir.length ? program.dir[0] : 'node_modules';
+        const nodeModules = path.resolve(currentPath, dir);
 
         if (fs.existsSync(nodeModules)) {
             var files = fs.readdirSync(nodeModules)
@@ -19,7 +21,12 @@ export default function recurseSymlinks(callback, log = true) {
                     const modulePath = path.resolve(nodeModules, file);
 
                     const pkg = path.resolve(modulePath, 'package.json');
-                    const version = JSON.parse(fs.readFileSync(pkg, 'utf8')).version;
+
+                    const version = Try(() => JSON.parse(fs.readFileSync(pkg, 'utf8')))
+                        .map(ii => ii.version)
+                        .toMaybe()
+                        .value('no package.json');
+
                     var isLast = index === files.length - 1;
                     var indent = '';
                     var branch = '├─';

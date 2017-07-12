@@ -17,5 +17,5 @@ export default function modules(program, config) {
             console.log(chalk.red('Error:'), chalk.yellow(file), 'is symlinked and has unstaged changes')
             process.exit(1);
         }
-    }, false)('.', []);
+    }, {log: false, program})('.', []);
 }

@@ -9,7 +9,7 @@ import test from './test';
 
 program
     .version(pkg.version)
-    // .option('-l, --lurkles <items>', 'A list of config files to merge', val => val.split(','))
+    .option('-d, --dir <items>', 'Directory to recursivly ', val => val.split(','))
     // .option('-d, --dry', 'show commands without running them')
     // .option('-c, --concurrent', 'run commands concurrently')
 

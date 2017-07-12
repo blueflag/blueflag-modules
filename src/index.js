@@ -4,8 +4,8 @@
 // import chalk from 'chalk';
 import pkg from '../package.json';
 import program from 'commander';
-import unstaged from './unstaged';
 import modules from './modules';
+import test from './test';
 
 program
     .version(pkg.version)
@@ -24,6 +24,10 @@ program
 program.parse(process.argv);
 
 switch (program.args[0]) {
+    case 'test':
+        test(program, {});
+        break;
+
     default:
         modules(program, {});
         break;

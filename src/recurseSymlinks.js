@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import chalk from 'chalk';
 
-export default function recurseSymlinks(callback) {
+export default function recurseSymlinks(callback, log = true) {
     return function recurseNodeModules(currentPath, depth, parentWasLast) {
 
         const nodeModules = path.resolve(currentPath,'node_modules');
@@ -34,12 +34,16 @@ export default function recurseSymlinks(callback) {
                         .reverse()
                         .join('');
 
-                    console.log(chalk.grey(indent) + callback({version, file, modulePath, isLast, parentWasLast}));
+                    if(log) {
+                        console.log(chalk.grey(indent) + callback({version, file, modulePath, isLast, parentWasLast}));
+                    } else {
+                        callback({version, file, modulePath, isLast, parentWasLast})
+                    }
 
                     if(depth.indexOf(file) === -1) {
                         recurseNodeModules(modulePath, depth.concat(file), isLast);
                     }
                 });
         }
-    }
+    };
 }

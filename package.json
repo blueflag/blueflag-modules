@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-blueflag",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "repository": {
     "type": "git",
     "url": "git@github.com:blueflag/eslint-config-blueflag.git"

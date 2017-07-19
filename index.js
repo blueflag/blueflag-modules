@@ -41,6 +41,14 @@ module.exports = function(context, options) {
         ]);
     }
 
+    // babel-plugin-transform-runtime
+    if(disabled.indexOf('transform-runtime') === -1) {
+        plugins.push([
+            transformRuntime,
+            config['transform-runtime']
+        ]);
+    }
+
     // babel-plugin-transform-class-properties
     if(disabled.indexOf('transform-class-properties') === -1) {
         plugins.push([

@@ -1,5 +1,5 @@
 # babel-preset-blueflag
-[![babel-preset-blueflag npm](https://img.shields.io/npm/v/babel-preset-blueflag.svg?style=flat-square)](https://www.npmjs.com/package/stampy)
+[![babel-preset-blueflag npm](https://img.shields.io/npm/v/babel-preset-blueflag.svg?style=flat-square)](https://www.npmjs.com/package/babel-preset-blueflag)
 
 A preset for Blue Flag's oppinions on babel plugins
 

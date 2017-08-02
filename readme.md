@@ -1,4 +1,5 @@
 # Blue Flag linting configurations
+[![eslint-config-blueflag npm](https://img.shields.io/npm/v/eslint-config-blueflag.svg?style=flat-square)](https://www.npmjs.com/package/stampy)
 
 # Installation
 

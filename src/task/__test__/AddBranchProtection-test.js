@@ -17,7 +17,7 @@ const AddBranchProtection = proxyquire('../AddBranchProtection', {
 }).default;
 
 
-test('AddBranchProtection', (tt: AssertContext) => {
+test('AddBranchProtection', (tt: Object) => {
     AddBranchProtection('foo', 'bar')();
 
     const payload = taskSpy.firstCall.args[0];

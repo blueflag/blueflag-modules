@@ -9,7 +9,7 @@ const Circle = proxyquire('../Circle', {
 }).default;
 
 
-test('Circle.follow', (tt: AssertContext): Promise<> => {
+test('Circle.follow', (tt: Object): Promise<> => {
     return Circle
         .follow({owner: 'foo', repo: 'bar'})
         .then((data) => tt.is(data, `project/github/foo/bar/follow`))

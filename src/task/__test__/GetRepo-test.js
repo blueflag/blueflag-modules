@@ -14,7 +14,7 @@ const GetRepo = proxyquire('../GetRepo', {
 }).default;
 
 
-test('GetRepo', (tt: AssertContext): Promise<> => {
+test('GetRepo', (tt: Object): Promise<> => {
     return GetRepo('foo', 'bar')()
         .then(payload => {
             tt.is(payload.repo, 'bar');

@@ -13,6 +13,6 @@ const Protect = proxyquire('../Protect', {
 }).default;
 
 
-test('Protect returns a promise', (tt: AssertContext): Promise<> => {
+test('Protect returns a promise', (tt: Object): Promise<> => {
     return Protect({}, 'foo/bar').then(() => tt.pass());
 });

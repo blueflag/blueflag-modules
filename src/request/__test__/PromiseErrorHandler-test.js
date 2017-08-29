@@ -14,13 +14,13 @@ const PromiseErrorHandler = proxyquire('../PromiseErrorHandler', {
 test.beforeEach(() => spy(console, 'log'));
 test.afterEach(() => console.log.restore());
 
-test('PromiseErrorHandler will plain log if error parsing fails', (tt: AssertContext) => {
+test('PromiseErrorHandler will plain log if error parsing fails', (tt: Object) => {
     PromiseErrorHandler('fake object');
     tt.is(console.log.callCount, 1);
 });
 
 
-test('PromiseErrorHandler will try and log all error items', (tt: AssertContext) => {
+test('PromiseErrorHandler will try and log all error items', (tt: Object) => {
     PromiseErrorHandler({message: `{"message": "foo", "errors": [{"message": "bar"}]}`});
     tt.is(console.log.callCount, 2);
 });

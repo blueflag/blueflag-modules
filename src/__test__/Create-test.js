@@ -21,7 +21,7 @@ function stubFile(inquireData) {
 
 
 
-test('Create returns a promise', (tt: AssertContext): Promise<> => {
+test('Create returns a promise', (tt: Object): Promise<> => {
     var Create = stubFile({repo: 'foo', remove: true});
     return Create({}, 'foo/foo').then(() => tt.pass());
 });

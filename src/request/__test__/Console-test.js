@@ -8,7 +8,7 @@ const Console = proxyquire('../Console', {
 }).default;
 
 
-test('Console passes first argument through and logs to console', (tt: AssertContext) => {
+test('Console passes first argument through and logs to console', (tt: Object) => {
     spy(console, 'log');
 
     tt.is(Console.log('foo'), 'foo');

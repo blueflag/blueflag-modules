@@ -14,7 +14,7 @@ const CommitPullApproveConfig = proxyquire('../CommitPullApproveConfig', {
 }).default;
 
 
-test('CommitPullApproveConfig', (tt: AssertContext): Promise<> => {
+test('CommitPullApproveConfig', (tt: Object): Promise<> => {
     return CommitPullApproveConfig('foo', 'bar')()
         .then(payload => {
             tt.is(payload.path, '.pullapprove.yml');

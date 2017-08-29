@@ -12,6 +12,6 @@ proxyquire('../Github', {
 }).default;
 
 
-test('Github.follow', (tt: AssertContext) => {
+test('Github.follow', (tt: Object) => {
     tt.is(authSpy.callCount, 1);
 });

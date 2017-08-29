@@ -24,18 +24,18 @@ function stubFile() {
 }
 
 
-test('Commander calls the requied function', (tt: AssertContext) => {
+test('Commander calls the requied function', (tt: Object) => {
     process.argv = ['/','/', 'create', 'foo/bar'];
     tt.is(stubFile().CreateSpy.callCount, 1);
 });
 
 
-test('Commander calls the requied function', (tt: AssertContext) => {
+test('Commander calls the requied function', (tt: Object) => {
     process.argv = ['/','/', 'delete', 'foo/bar'];
     tt.is(stubFile().DeleteSpy.callCount, 1);
 });
 
-test('Commander calls the requied function', (tt: AssertContext) => {
+test('Commander calls the requied function', (tt: Object) => {
     process.argv = ['/','/', 'protect', 'foo/bar'];
     tt.is(stubFile().ProtectSpy.callCount, 1);
 });

@@ -2,15 +2,10 @@
 module.system.node.resolve_dirname=node_modules
 module.system.node.resolve_dirname=..
 module.system.node.resolve_dirname=src
+emoji=true
 
 [ignore]
-<PROJECT_ROOT>/src/blueflag-repo/client.js
-<PROJECT_ROOT>/src/blueflag-repo/tracking.js
 <PROJECT_ROOT>/coverage/.*
 <PROJECT_ROOT>/.nyc_output/.*
 <PROJECT_ROOT>/scripts/.*
 <PROJECT_ROOT>/dist/.*
-
-[libs]
-./decls/
-./node_modules/ava/index.js.flow

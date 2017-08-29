@@ -14,7 +14,7 @@ const CreateRepo = proxyquire('../CreateRepo', {
 }).default;
 
 
-test('CreateRepo', (tt: AssertContext): Promise<> => {
+test('CreateRepo', (tt: Object): Promise<> => {
     return CreateRepo('foo', 'bar')()
         .then(payload => {
             tt.is(payload.auto_init, true);

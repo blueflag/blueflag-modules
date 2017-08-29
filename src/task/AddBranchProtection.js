@@ -1,8 +1,9 @@
+// @flow
 import Github from '../service/Github';
 import Loader from '../request/Loader';
 
-export default function AddBranchProtection(owner, repo) {
-    return () => {
+export default function AddBranchProtection(owner: string, repo: string): Function {
+    return (): Promise<> => {
         Loader.start('Adding branch protection.');
         return Github.repos
             .updateBranchProtection({
@@ -22,5 +23,5 @@ export default function AddBranchProtection(owner, repo) {
                 restrictions: null,
                 enforce_admins: false
             });
-    }
+    };
 }

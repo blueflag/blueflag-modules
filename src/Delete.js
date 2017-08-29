@@ -6,8 +6,7 @@ import inquirer from 'inquirer';
 import Console from './request/Console';
 
 
-
-export default function Create(program, arg) {
+export default function Create(program: Object, arg: string): Promise<> {
     const [owner, repo] = arg.split('/');
     return inquirer
         .prompt([
@@ -22,7 +21,7 @@ export default function Create(program, arg) {
                 default: false
             }
         ])
-        .then(prompt => {
+        .then((prompt: Object): Object => {
             if(prompt.repo !== repo) {
                 return Promise.reject(`${prompt.repo} did not match ${repo}`);
             }
@@ -34,9 +33,9 @@ export default function Create(program, arg) {
             return {owner,repo};
         })
         .then(Github.repos.delete)
-        .then((ii) => {
+        .then(() => {
             Loader.stop();
-            Console.success(`${arg} was deleted.`)
+            Console.success(`${arg} was deleted.`);
         })
         .catch(PromiseErrorHandler);
 }

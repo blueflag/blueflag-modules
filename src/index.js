@@ -11,7 +11,7 @@ import Protect from './Protect';
 commander
     .version(pkg.version)
     .arguments('[cmd] [arg]')
-    .action((command, arg) => {
+    .action((command: string, arg: string): ?Promise<> => {
         switch(command) {
             case 'create':
                 return Create(commander, arg);

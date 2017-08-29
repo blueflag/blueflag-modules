@@ -1,8 +1,9 @@
+// @flow
 import Github from '../service/Github';
 import Loader from '../request/Loader';
 
-export default function CreateRepo(org, name) {
-    return () => {
+export default function CreateRepo(org: string, name: string): Function {
+    return (): Promise<> => {
         Loader.start('Creating repository.');
         return Github
             .repos
@@ -13,5 +14,5 @@ export default function CreateRepo(org, name) {
                 org,
                 private: true
             });
-    }
+    };
 }

@@ -12,7 +12,7 @@ const FollowRepoBuild = proxyquire('../FollowRepoBuild', {
 }).default;
 
 
-test('FollowRepoBuild', (tt: AssertContext): Promisegg<void> => {
+test('FollowRepoBuild', (tt: AssertContext): Promise<> => {
     return FollowRepoBuild('foo', 'bar')()
         .then(payload => {
             tt.is(payload.repo, 'bar');

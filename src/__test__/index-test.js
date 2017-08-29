@@ -3,16 +3,6 @@ import test from 'ava';
 import {spy} from 'sinon';
 const proxyquire = require('proxyquire').noCallThru().noPreserveCache();
 
-const CreateSpy = spy();
-const DeleteSpy = spy();
-const ProtectSpy = spy();
-
-const stub = {
-    './Create': CreateSpy,
-    './Delete': DeleteSpy,
-    './Protect': ProtectSpy
-};
-
 function stubFile() {
     const CreateSpy = spy();
     const DeleteSpy = spy();
@@ -34,18 +24,18 @@ function stubFile() {
 }
 
 
-test('Commander calls the requied function', (tt: AssertContext): Promise<void> => {
+test('Commander calls the requied function', (tt: AssertContext) => {
     process.argv = ['/','/', 'create', 'foo/bar'];
     tt.is(stubFile().CreateSpy.callCount, 1);
 });
 
 
-test('Commander calls the requied function', (tt: AssertContext): Promise<void> => {
+test('Commander calls the requied function', (tt: AssertContext) => {
     process.argv = ['/','/', 'delete', 'foo/bar'];
     tt.is(stubFile().DeleteSpy.callCount, 1);
 });
 
-test('Commander calls the requied function', (tt: AssertContext): Promise<void> => {
+test('Commander calls the requied function', (tt: AssertContext) => {
     process.argv = ['/','/', 'protect', 'foo/bar'];
     tt.is(stubFile().ProtectSpy.callCount, 1);
 });

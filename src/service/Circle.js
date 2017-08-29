@@ -1,3 +1,4 @@
+// @flow
 import Gromit from 'gromit';
 
 const requester = Gromit({
@@ -8,5 +9,5 @@ const requester = Gromit({
 });
 
 export default {
-    follow: ({owner, repo}) => requester.post(`project/github/${owner}/${repo}/follow`)
+    follow: ({owner, repo}: Object): Promise<> => requester.post(`project/github/${owner}/${repo}/follow`)
 };

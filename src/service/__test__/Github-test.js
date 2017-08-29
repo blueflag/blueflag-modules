@@ -5,13 +5,13 @@ const proxyquire = require('proxyquire').noCallThru();
 
 const authSpy = spy();
 
-const Github = proxyquire('../Github', {
+proxyquire('../Github', {
     'github': () => ({
         authenticate: authSpy
     })
 }).default;
 
 
-test('Github.follow', (tt: AssertContext): Promisegg<void> => {
+test('Github.follow', (tt: AssertContext) => {
     tt.is(authSpy.callCount, 1);
 });

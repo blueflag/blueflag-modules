@@ -1,6 +1,7 @@
+// @flow
 import Github from 'github';
 
-const github = new Github({})
+const github = new Github({});
 
 // user token
 github.authenticate({

@@ -1,7 +1,6 @@
 import Github from '../service/Github';
 import Loader from '../request/Loader';
 
-
 export default function CommitPullApproveConfig(owner, repo) {
     return () => {
         Loader.start('Adding .pullapprove.yml');
@@ -15,4 +14,3 @@ export default function CommitPullApproveConfig(owner, repo) {
             }))
     }
 }
-¡

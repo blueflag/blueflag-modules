@@ -8,9 +8,6 @@ import Console from './request/Console';
 
 
 export default function Create(program, arg) {
-    if(!arg) {
-        console.error('No repo provided!');
-    }
     const [owner, repo] = arg.split('/');
     return inquirer
         .prompt([

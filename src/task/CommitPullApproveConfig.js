@@ -1,6 +1,7 @@
 // @flow
 import Github from '../service/Github';
 import Loader from '../request/Loader';
+import Console from '../request/Console';
 
 export default function CommitPullApproveConfig(owner: string, repo: string): Function {
     return (): Promise<> => {
@@ -12,6 +13,14 @@ export default function CommitPullApproveConfig(owner: string, repo: string): Fu
                 path: '.pullapprove.yml',
                 message: 'Add .pullapprove.yml',
                 content: Buffer.from('version: 2\nextends: default-template').toString('base64')
-            }));
+            }))
+            .catch((error: Object): Promise<> => {
+                // Dont fail if pullapprove already exists
+                if(error.code === 422 && error.message.indexOf(`\\"sha\\" wasn't supplied.`)) {
+                    Console.log('.pullapprove.yml already exists.');
+                    return Promise.resolve();
+                }
+                return Promise.reject(error);
+            });
     };
 }

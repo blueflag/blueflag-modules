@@ -6,12 +6,16 @@ import pkg from '../package.json';
 import Create from './Create';
 import Delete from './Delete';
 import Protect from './Protect';
+import Report from './Report';
+import CheckoutCircleKey from './CheckoutCircleKey';
 
 
 commander
     .version(pkg.version)
+    .option('--circle-token <value>')
     .arguments('[cmd] [arg]')
     .action((command: string, arg: string): ?Promise<> => {
+        process.env.CIRCLE_CI_TOKEN = commander.circleToken || process.env.CIRCLE_CI_TOKEN;
         switch(command) {
             case 'create':
                 return Create(commander, arg);

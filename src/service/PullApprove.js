@@ -5,7 +5,7 @@ function requester(): Object {
     return Gromit({
         baseUrl: `https://pullapprove.com/api/`,
         headers: {
-            Authorization: `Token ${process.env.PULL_APPROVE_TOKEN}`
+            Authorization: `Token ${process.env.PULL_APPROVE_TOKEN || ''}`
         }
     });
 }

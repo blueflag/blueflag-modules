@@ -12,7 +12,7 @@ export default function Protect(program: Object, arg: string): Promise<> {
     const [org, name] = arg.split('/');
     Loader.start();
     return Promise.resolve()
-        .then(CommitPullApproveConfig(org, name))
+        .then(CommitPullApproveConfig(org, name, program.pullapproveTemplate))
         .then(AddBranchProtection(org, name))
         .then(AddTeamsToRepo(org, name))
         .then(FollowRepoBuild(org, name))

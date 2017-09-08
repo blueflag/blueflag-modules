@@ -10,6 +10,9 @@ import Protect from './Protect';
 commander
     .version(pkg.version)
     .option('-c --circle-token <value>')
+    .option('-g --github-token <value>')
+    .option('-p --pullapprove-token <value>')
+    .option('-P --pullapprove-template [template=default]', 'Pull Approve template', /^(default|library)/g, 'default')
     .arguments('[cmd] [arg]')
     .action((command: string, arg: string): ?Promise<> => {
         process.env.CIRCLE_CI_TOKEN = commander.circleToken || process.env.CIRCLE_CI_TOKEN || '';
@@ -22,6 +25,10 @@ commander
 
             case 'protect':
                 return Protect(commander, arg);
+
+            case 'test':
+                console.log(commander);
+                return Promise.resolve();
         }
     });
 

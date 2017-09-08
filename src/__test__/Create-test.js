@@ -16,6 +16,7 @@ function stubFile(inquireData) {
         './task/CreateRepo': () => () => Promise.resolve(),
         './task/FollowRepoBuild': () => () => Promise.resolve(),
         './task/GetRepo': () => () => Promise.resolve({data: {id: 'foo'}}),
+        './task/PullApproveAdd': () => () => Promise.resolve()
     }).default;
 }
 

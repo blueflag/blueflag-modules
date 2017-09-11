@@ -5,8 +5,6 @@ import Api from 'ava/Api';
 import Logger from 'ava/lib/Logger';
 import VerboseReporter from 'ava/lib/reporters/verbose';
 
-console.log('cwd', process.cwd());
-
 const TEST_DIR = process.cwd();
 
 const api = new Api({
@@ -29,13 +27,13 @@ const api = new Api({
     resolveTestsFrom: TEST_DIR,
     projectDir: TEST_DIR,
     timeout: '3s',
-    concurrency: 2,
+    concurrency: 2
     // updateSnapshots: conf.updateSnapshots,
     // snapshotDir: conf.snapshotDir ? path.resolve(projectDir, conf.snapshotDir) : null,
-    color: true
+    // color: true
 });
 
-const reporter = new VerboseReporter();
+const reporter = new VerboseReporter({color: true});
 const logger = new Logger(reporter);
 
 logger.start();

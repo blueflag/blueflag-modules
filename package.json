@@ -20,7 +20,7 @@
   },
   "private": true,
   "scripts": {
-    "build": "rm -rf lib && babel src --out-dir lib",
+    "build": "rm -rf lib && babel src --out-dir lib --copy-files",
     "build-examples": "cd example && yarn install && yarn run build && cd -",
     "deploy-to-gh-pages": "yarn run build && yarn run build-examples && yarn run docs && node scripts/publish.js",
     "prepublish": "yarn run build",
@@ -67,13 +67,14 @@
     ]
   },
   "dependencies": {
-    "ava": "^0.22.0",
     "app-module-path": "^2.2.0",
+    "ava": "^0.22.0",
     "babel-cli": "^6.23.0",
     "babel-core": "^6.23.0",
     "babel-plugin-istanbul": "4.1.1",
     "babel-preset-blueflag": "^0.6.0",
     "babel-register": "^6.23.0",
+    "commander": "^2.11.0",
     "eslint": "^3.9.1",
     "eslint-config-blueflag": "^0.5.0",
     "flow-bin": "^0.39.0",

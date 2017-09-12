@@ -1,63 +1,42 @@
 #!/usr/bin/env node
 // @flow
 
-import Api from 'ava/Api';
-import Logger from 'ava/lib/Logger';
-import VerboseReporter from 'ava/lib/reporters/verbose';
+import commander from 'commander';
+import pkg from '../package.json';
+// import Create from './Create';
+// import Delete from './Delete';
+import Test from './test';
+import Lint from './lint';
 
-const TEST_DIR = process.cwd();
+commander
+    .version(pkg.version)
+    .arguments('[cmd]')
+    .action((command: string, arg: string): ?Promise<> => {
+        switch(command) {
+            case 'coverage':
+                console.log('coverage');
+                return;
 
-const api = new Api({
-    failFast: true,
-    failWithoutAssertions: true,
-    // serial: ,
-    require: [
-        // "./pretest",
-        "babel-register"
-    ],
-    cacheEnabled: true,
-    powerAssert: true,
-    // explicitTitles: conf.watch,
-    // match: arrify(conf.match),
-    babelConfig: {
-        "presets": ["blueflag"],
-        "plugins": ["istanbul"],
-        "sourceMaps": "inline"
-    },
-    resolveTestsFrom: TEST_DIR,
-    projectDir: TEST_DIR,
-    timeout: '3s',
-    concurrency: 2
-    // updateSnapshots: conf.updateSnapshots,
-    // snapshotDir: conf.snapshotDir ? path.resolve(projectDir, conf.snapshotDir) : null,
-    // color: true
-});
+            case 'check-coverage':
+                console.log('check-coverage');
+                return;
 
-const reporter = new VerboseReporter({color: true});
-const logger = new Logger(reporter);
+            case 'test':
+                Test();
+                return;
 
-logger.start();
+            case 'lint':
+                Lint();
+                return;
 
+            case 'flow':
+                console.log('flow');
+                return;
 
-api.on('test-run', (runStatus: Object) => {
-    reporter.api = runStatus;
-    runStatus.on('test', logger.test);
-    runStatus.on('error', logger.unhandledError);
-
-    runStatus.on('stdout', logger.stdout);
-    runStatus.on('stderr', logger.stderr);
-});
-
-api
-    .run(['src/**/*-test.js'])
-    .then((runStatus: Object) => {
-        logger.finish(runStatus);
-        logger.exit(runStatus.failCount > 0 || runStatus.rejectionCount > 0 || runStatus.exceptionCount > 0 ? 1 : 0);
-    })
-    .catch((err: Error) => {
-        // Don't swallow exceptions. Note that any expected error should already
-        // have been logged.
-        setImmediate(() => {
-            throw err;
-        });
+            case 'all':
+                console.log('all');
+                return;
+        }
     });
+
+commander.parse(process.argv);

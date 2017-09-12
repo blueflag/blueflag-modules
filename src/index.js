@@ -3,10 +3,16 @@
 
 import commander from 'commander';
 import pkg from '../package.json';
+import chalk from 'chalk';
 // import Create from './Create';
 // import Delete from './Delete';
 import Test from './test';
 import Lint from './lint';
+import Flow from './flow';
+
+function log(...args) {
+    console.log(chalk.cyan('blueflag-tests'), ...args);
+}
 
 commander
     .version(pkg.version)
@@ -22,16 +28,16 @@ commander
                 return;
 
             case 'test':
-                Test();
-                return;
+                log('Running tests.');
+                return Test();
 
             case 'lint':
-                Lint();
-                return;
+                log('Linting code.');
+                return Lint();
 
             case 'flow':
-                console.log('flow');
-                return;
+                log('Checking types.');
+                return Flow();
 
             case 'all':
                 console.log('all');

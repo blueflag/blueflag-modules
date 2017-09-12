@@ -5,7 +5,6 @@ import FlowBin from 'flow-bin';
 import ChildProcess from 'child_process';
 
 export default function Flow() {
-
     ChildProcess
         .spawn(FlowBin, ['check'], {
             stdio: 'inherit',

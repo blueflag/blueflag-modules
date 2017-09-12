@@ -10,14 +10,14 @@ import Test from './test';
 import Lint from './lint';
 import Flow from './flow';
 
-function log(...args) {
+function log(...args: Array<any>) {
     console.log(chalk.cyan('blueflag-tests'), ...args);
 }
 
 commander
     .version(pkg.version)
     .arguments('[cmd]')
-    .action((command: string, arg: string): ?Promise<> => {
+    .action((command: string): ?Promise<> => {
         switch(command) {
             case 'coverage':
                 console.log('coverage');
@@ -38,10 +38,6 @@ commander
             case 'flow':
                 log('Checking types.');
                 return Flow();
-
-            case 'all':
-                console.log('all');
-                return;
         }
     });
 

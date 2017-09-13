@@ -26,13 +26,13 @@
     "prepublish": "yarn run build",
     "watch": "yarn run build -- -w",
     "ava": "NODE_ENV=test ava",
-    "check-coverage": "NODE_ENV=test nyc check-coverage --branches 100.0  --functions 100.0 --lines 100.0",
     "docs": "jsdoc -c jsdoc.json",
-    "flow": "blueflag-test flow",
-    "lint": "blueflag-test lint",
+    "flow": "./scripts/run flow",
+    "lint": "./scripts/run lint",
     "lint-fix": "eslint src --ext js,jsx --fix",
-    "test": "NODE_ENV=test nyc --report-dir=./coverage ava && yarn run check-coverage",
-    "test-all": "NODE_ENV=test yarn run lint && yarn run flow && yarn run test"
+    "test": "./scripts/run test",
+    "coverage": "yarn nyc --all --check-coverage --include=src/** --reporter=lcov --extension=.js ./scripts/run coverage",
+    "test-all": "NODE_ENV=test yarn run lint && yarn run flow && yarn run coverage"
   },
   "devDependencies": {
     "dotenv": "4.0.0",
@@ -42,29 +42,6 @@
     "jsdoc-babel": "^0.3.0",
     "jsdoc-react-proptypes": "^1.0.2",
     "jsdonk": "^0.7.0"
-  },
-  "nyc": {
-    "all": true,
-    "sourceMap": false,
-    "instrument": false,
-    "include": [
-      "src/**"
-    ],
-    "exclude": [
-      "src/**/*-test.js",
-      "dist"
-    ],
-    "reporter": [
-      "lcov",
-      "text"
-    ],
-    "extension": [
-      ".js",
-      ".jsx"
-    ],
-    "require": [
-      "babel-register"
-    ]
   },
   "dependencies": {
     "app-module-path": "^2.2.0",
@@ -79,8 +56,8 @@
     "eslint": "^3.9.1",
     "eslint-config-blueflag": "^0.5.0",
     "flow-bin": "^0.39.0",
-    "nyc": "^11.2.1",
+    "nyc": "10.3.2",
     "proxyquire": "^1.7.10",
-    "sinon": "^2.1.0"
+    "sinon": "^3.2.1"
   }
 }

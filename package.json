@@ -1,0 +1,63 @@
+{
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "bin": {
+    "blueflag-test": "lib/index.js"
+  },
+  "name": "proto-blueflag-test",
+  "version": "0.0.0",
+  "description": "Babel Plugin to extract flow types",
+  "license": "UNLICENSED",
+  "author": "Allan Hortle",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:blueflag/proto-blueflag-test.git"
+  },
+  "bugs": {
+    "url": "https://github.com/blueflag/proto-blueflag-test/issues"
+  },
+  "private": true,
+  "scripts": {
+    "build": "rm -rf lib && babel src --out-dir lib --copy-files",
+    "build-examples": "cd example && yarn install && yarn run build && cd -",
+    "deploy-to-gh-pages": "yarn run build && yarn run build-examples && yarn run docs && node scripts/publish.js",
+    "prepublish": "yarn run build",
+    "watch": "yarn run build -- -w",
+    "ava": "NODE_ENV=test ava",
+    "docs": "jsdoc -c jsdoc.json",
+    "flow": "./scripts/run flow",
+    "lint": "./scripts/run lint",
+    "lint-fix": "eslint src --ext js,jsx --fix",
+    "test": "./scripts/run test",
+    "coverage": "yarn nyc --all --check-coverage --include=src/** --reporter=lcov --extension=.js ./scripts/run coverage",
+    "test-all": "NODE_ENV=test yarn run lint && yarn run flow && yarn run coverage"
+  },
+  "devDependencies": {
+    "dotenv": "4.0.0",
+    "gh-pages": "^0.11.0",
+    "git-url-parse": "^6.0.1",
+    "jsdoc": "^3.4.3",
+    "jsdoc-babel": "^0.3.0",
+    "jsdoc-react-proptypes": "^1.0.2",
+    "jsdonk": "^0.7.0"
+  },
+  "dependencies": {
+    "app-module-path": "^2.2.0",
+    "ava": "^0.22.0",
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.0",
+    "babel-plugin-istanbul": "4.1.1",
+    "babel-preset-blueflag": "^0.6.0",
+    "babel-register": "^6.23.0",
+    "chalk": "^2.1.0",
+    "commander": "^2.11.0",
+    "eslint": "^3.9.1",
+    "eslint-config-blueflag": "^0.5.0",
+    "flow-bin": "^0.39.0",
+    "nyc": "10.3.2",
+    "proxyquire": "^1.7.10",
+    "sinon": "^3.2.1"
+  }
+}

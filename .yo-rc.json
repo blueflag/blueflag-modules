@@ -1,0 +1,15 @@
+{
+  "generator-bigdatr-startr": {
+    "promptValues": {
+      "name": "proto-blueflag-test",
+      "description": "Babel Plugin to extract flow types",
+      "version": "0.0.0",
+      "license": "UNLICENSED",
+      "private": true,
+      "author": "Allan Hortle",
+      "username": "blueflag",
+      "nameConstant": "PROTO_BLUEFLAG_TEST",
+      "example": false
+    }
+  }
+}

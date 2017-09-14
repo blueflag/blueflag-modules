@@ -6,6 +6,7 @@ module.system.node.resolve_dirname=src
 <PROJECT_ROOT>/src/proto-blueflag-test/client.js
 <PROJECT_ROOT>/src/proto-blueflag-test/tracking.js
 <PROJECT_ROOT>/coverage/.*
+<PROJECT_ROOT>/node_modules/.cache/.*
 <PROJECT_ROOT>/.nyc_output/.*
 <PROJECT_ROOT>/scripts/.*
 <PROJECT_ROOT>/dist/.*

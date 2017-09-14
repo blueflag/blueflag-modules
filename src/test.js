@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // @flow
 
-import Api from 'ava/Api';
-import Logger from 'ava/lib/Logger';
+import Api from 'ava/api';
+import Logger from 'ava/lib/logger';
 import VerboseReporter from 'ava/lib/reporters/verbose';
 
 

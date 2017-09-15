@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/repo
+    working_directory: ~/proto-blueflag-test
     docker:
       - image: circleci/node:6.10.3
 

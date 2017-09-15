@@ -18,22 +18,25 @@ export default function Coverage(program: Object) {
     }
 
 
-    const args = [
-        `--all`,
-        `--check-coverage`,
-        `--branches=${minCoverage}`,
-        `--functions=${minCoverage}`,
-        `--lines=${minCoverage}`,
-        `--statements=${minCoverage}`,
-        `--include=src/**`,
-        `--exclude=**/*-test.js`,
-        `--reporter=text`,
-        `--reporter=lcov`,
-        `--extension=.jsx`,
-        `--extension=.js`,
-        blueflagTestBin,
-        `test`
-    ];
+    const args = []
+        .concat([
+            `--all`,
+            `--check-coverage`,
+            `--branches=${minCoverage}`,
+            `--functions=${minCoverage}`,
+            `--lines=${minCoverage}`,
+            `--statements=${minCoverage}`,
+            `--include=src/**`,
+            `--exclude=**/*-test.js`,
+            `--reporter=text`,
+            `--reporter=lcov`,
+            `--extension=.js`
+        ])
+        .concat(program.extraFlags)
+        .concat([
+            blueflagTestBin,
+            `test`
+        ]);
 
     ChildProcess
         .spawn(nycBin, args, {

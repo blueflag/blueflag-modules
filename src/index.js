@@ -21,6 +21,14 @@ commander
     .option('-m --min-coverage <n>')
     .arguments('[cmd]')
     .action((command: string): ?Promise<> => {
+
+        const flags = commander.options
+            .reduce((ff, ii) => ff.concat(ii.short, ii.long), []);
+
+        commander.extraFlags = commander.rawArgs
+            .slice(3)
+            .filter(extra => flags.every(flag =>  extra.indexOf(flag) === -1));
+
         switch(command) {
             case 'coverage':
                 log('Covering tests');

@@ -12,5 +12,3 @@ export default function Flow() {
         })
         .on('exit', process.exit);
 }
-
-

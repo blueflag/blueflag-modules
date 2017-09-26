@@ -20,9 +20,8 @@
   "author": "Allan hortle",
   "license": "ISC",
   "dependencies": {
-    "babel-eslint": "^7.1.1",
-    "eslint": "3.12.2",
+    "eslint": "^4.7.2",
     "eslint-plugin-flowtype": "^2.29.1",
-    "eslint-plugin-react": "^6.8.0"
+    "eslint-plugin-react": "^7.4.0"
   }
 }

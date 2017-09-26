@@ -8,6 +8,8 @@ module.exports = {
     rules: {
         // React
         'react/no-danger': 0,
+        'react/no-children-prop': 0,
+        'react/no-unescaped-entities': 0,
         'react/prop-types': [2, {
             ignore: ['children']
         }],

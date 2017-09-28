@@ -58,7 +58,7 @@
     "eslint-plugin-flowtype": "^2.36.0",
     "eslint-plugin-react": "^7.4.0",
     "flow-bin": "0.54",
-    "nyc": "10.3.2",
+    "nyc": "^11.2.1",
     "proxyquire": "^1.7.10",
     "sinon": "^3.2.1"
   }

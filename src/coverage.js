@@ -26,11 +26,9 @@ export default function Coverage(program: Object) {
             `--functions=${minCoverage}`,
             `--lines=${minCoverage}`,
             `--statements=${minCoverage}`,
-            `--include=src/**`,
-            `--exclude=**/*-test.js`,
+            `--include=src`,
             `--reporter=text`,
-            `--reporter=lcov`,
-            `--extension=.js`
+            `--reporter=lcov`
         ])
         .concat(program.extraFlags)
         .concat([

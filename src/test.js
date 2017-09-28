@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // @flow
 
+import path from 'path';
 import Api from 'ava/api';
 import Logger from 'ava/lib/logger';
 import VerboseReporter from 'ava/lib/reporters/verbose';
@@ -14,7 +15,7 @@ export default function Test() {
         failWithoutAssertions: true,
         // serial: ,
         require: [
-            // './pretest',
+            path.resolve(__dirname, 'config', 'pretest'),
             'babel-register'
         ],
         cacheEnabled: true,

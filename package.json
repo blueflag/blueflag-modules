@@ -35,7 +35,6 @@
     "test-all": "NODE_ENV=test yarn run lint && yarn run flow && yarn run coverage"
   },
   "devDependencies": {
-    "dotenv": "4.0.0",
     "gh-pages": "^0.11.0",
     "git-url-parse": "^6.0.1",
     "jsdoc": "^3.4.3",
@@ -53,6 +52,7 @@
     "babel-register": "^6.23.0",
     "chalk": "^2.1.0",
     "commander": "^2.11.0",
+    "dotenv": "^4.0.0",
     "eslint": "^4.7.2",
     "eslint-config-blueflag": "^0.6.1",
     "eslint-plugin-flowtype": "^2.36.0",

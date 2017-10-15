@@ -12,6 +12,6 @@ const lint = proxyquire('./lint', {
 }).default;
 
 test('lint will call eslint Cli.execute', (tt: Object) => {
-    lint();
+    lint({});
     tt.is(lintSpy.callCount, 1);
 });

@@ -41,7 +41,7 @@ commander
 
             case 'lint':
                 log('Linting code');
-                return Lint();
+                return Lint(commander);
 
             case 'flow':
                 log('Checking types');

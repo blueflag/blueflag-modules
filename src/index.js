@@ -6,6 +6,7 @@ import pkg from '../package.json';
 import Create from './Create';
 import Delete from './Delete';
 import Protect from './Protect';
+import SetTeam from './SetTeam';
 
 commander
     .version(pkg.version)
@@ -30,6 +31,13 @@ commander
                 console.log(commander);
                 return Promise.resolve();
         }
+    });
+
+commander
+    .command('set-team')
+    .arguments('<repo> <team> <permission>')
+    .action((repo: string, team: string, permission: string): ?Promise<> => {
+        return SetTeam(commander, {repo, team, permission});
     });
 
 commander.parse(process.argv);

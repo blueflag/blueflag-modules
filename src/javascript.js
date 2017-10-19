@@ -1,7 +1,7 @@
 module.exports = {
     rules: {
         strict: 0,
-        'newline-per-chained-call': 2,
+        'newline-per-chained-call': ["error", {"ignoreChainWithDepth": 3}],
         'object-curly-spacing': 2,
         'space-in-parens': 2,
         'no-console': 0,

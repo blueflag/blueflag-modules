@@ -7,7 +7,7 @@
     "blueflag-test": "lib/index.js"
   },
   "name": "proto-blueflag-test",
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "Babel Plugin to extract flow types",
   "license": "UNLICENSED",
   "author": "Allan Hortle",

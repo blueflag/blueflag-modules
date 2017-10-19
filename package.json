@@ -54,7 +54,7 @@
     "commander": "^2.11.0",
     "dotenv": "^4.0.0",
     "eslint": "^4.7.2",
-    "eslint-config-blueflag": "^0.6.1",
+    "eslint-config-blueflag": "^0.7.0",
     "eslint-plugin-flowtype": "^2.36.0",
     "eslint-plugin-react": "^7.4.0",
     "flow-bin": "0.54",

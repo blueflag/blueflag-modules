@@ -1747,9 +1747,9 @@ escape-string-regexp@^1.0.2, escape-string-regexp@^1.0.4, escape-string-regexp@^
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
 
-eslint-config-blueflag@^0.6.1:
-  version "0.6.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-blueflag/-/eslint-config-blueflag-0.6.1.tgz#0ea935dc6dc7f928ee7467b780255adb1a62e374"
+eslint-config-blueflag@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-blueflag/-/eslint-config-blueflag-0.7.0.tgz#4c5daba8e514bed0c261784e71afd741fedea2a8"
   dependencies:
     babel-eslint "^8.0.0"
     eslint "^4.7.2"

@@ -13,15 +13,12 @@ export default function Test() {
     const api = new Api({
         failFast: true,
         failWithoutAssertions: true,
-        // serial: ,
         require: [
             path.resolve(__dirname, 'config', 'pretest'),
             'babel-register'
         ],
         cacheEnabled: true,
         powerAssert: true,
-        // explicitTitles: conf.watch,
-        // match: arrify(conf.match),
         babelConfig: {
             presets: ['blueflag'],
             plugins: ['istanbul'],
@@ -29,11 +26,7 @@ export default function Test() {
         },
         resolveTestsFrom: TEST_DIR,
         projectDir: TEST_DIR,
-        timeout: '3s',
-        concurrency: 2
-        // updateSnapshots: conf.updateSnapshots,
-        // snapshotDir: conf.snapshotDir ? path.resolve(projectDir, conf.snapshotDir) : null,
-        // color: true
+        timeout: '5s'
     });
 
     const reporter = new VerboseReporter({color: true});

@@ -35,10 +35,6 @@ commander
                 Coverage(commander);
                 return;
 
-            case 'test':
-                log('Running tests');
-                return Test();
-
             case 'lint':
                 log('Linting code');
                 return Lint(commander);
@@ -48,6 +44,16 @@ commander
                 return Flow();
         }
     });
+
+
+commander
+    .command('test')
+    .arguments('[glob]')
+    .action((glob: string): ?Promise<> => {
+        return Test({glob});
+    });
+
+
 
 
 commander.parse(process.argv);

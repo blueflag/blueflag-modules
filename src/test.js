@@ -7,7 +7,7 @@ import Logger from 'ava/lib/logger';
 import VerboseReporter from 'ava/lib/reporters/verbose';
 
 
-export default function Test() {
+export default function Test(props: Object) {
     const TEST_DIR = process.cwd();
 
     const api = new Api({
@@ -26,7 +26,7 @@ export default function Test() {
         },
         resolveTestsFrom: TEST_DIR,
         projectDir: TEST_DIR,
-        timeout: '5s'
+        timeout: '30s'
     });
 
     const reporter = new VerboseReporter({color: true});
@@ -45,7 +45,7 @@ export default function Test() {
     });
 
     api
-        .run(['src/**/*-test.js'])
+        .run([props.glob || 'src/**/*-test.js'])
         .then((runStatus: Object) => {
             logger.finish(runStatus);
             logger.exit(runStatus.failCount > 0 || runStatus.rejectionCount > 0 || runStatus.exceptionCount > 0 ? 1 : 0);

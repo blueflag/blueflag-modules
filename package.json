@@ -18,7 +18,6 @@
   "bugs": {
     "url": "https://github.com/blueflag/proto-blueflag-test/issues"
   },
-  "private": true,
   "scripts": {
     "build": "rm -rf lib && babel src --out-dir lib --copy-files",
     "prepublish": "yarn run build",

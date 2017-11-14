@@ -2,13 +2,14 @@
 // @flow
 
 import ChildProcess from 'child_process';
+import path from 'path';
 
 
 export default function Coverage(program: Object) {
     const {minCoverage = 80} = program;
     const cwd = process.cwd();
 
-    let nycBin = `${cwd}/node_modules/proto-blueflag-test/node_modules/.bin/nyc`;
+    let nycBin = path.resolve(__dirname, '../node_modules/.bin/nyc');
     let blueflagTestBin = `${cwd}/node_modules/.bin/blueflag-test`;
 
     // blueflag-test is running itself

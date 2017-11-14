@@ -6,7 +6,7 @@
   "bin": {
     "blueflag-test": "lib/index.js"
   },
-  "name": "proto-blueflag-test",
+  "name": "@blueflag/proto-blueflag-test",
   "version": "0.8.0",
   "description": "Babel Plugin to extract flow types",
   "license": "UNLICENSED",
@@ -21,11 +21,8 @@
   "private": true,
   "scripts": {
     "build": "rm -rf lib && babel src --out-dir lib --copy-files",
-    "build-examples": "cd example && yarn install && yarn run build && cd -",
-    "deploy-to-gh-pages": "yarn run build && yarn run build-examples && yarn run docs && node scripts/publish.js",
     "prepublish": "yarn run build",
     "watch": "yarn run build -- -w",
-    "ava": "NODE_ENV=test ava",
     "docs": "jsdoc -c jsdoc.json",
     "flow": "./scripts/run flow",
     "lint": "./scripts/run lint",
@@ -35,8 +32,6 @@
     "test-all": "NODE_ENV=test yarn run lint && yarn run flow && yarn run coverage"
   },
   "devDependencies": {
-    "gh-pages": "^0.11.0",
-    "git-url-parse": "^6.0.1",
     "jsdoc": "^3.4.3",
     "jsdoc-babel": "^0.3.0",
     "jsdoc-react-proptypes": "^1.0.2",

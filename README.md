@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-yarn add --dev git+ssh://git@github.com/blueflag/proto-blueflag-test.git#v0.x.x
+yarn add --dev @blueflag/proto-blueflag-test
 ```
 
 ## package.json
@@ -15,7 +15,7 @@ yarn add --dev git+ssh://git@github.com/blueflag/proto-blueflag-test.git#v0.x.x
         "lint": "blueflag-test lint",
         "test": "blueflag-test test",
         "coverage": "blueflag-test coverage",
-        "test-all": "yarn lint && yarn flow && yarn coverage"        
+        "test-all": "yarn lint && yarn flow && yarn coverage"
     }
 }
 ```

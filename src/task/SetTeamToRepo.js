@@ -10,6 +10,10 @@ export default function SetTeamToRepo(args: Object): Function {
         return Github.orgs.addTeamRepo({id, org, repo, permission});
     }
 
+    function addRepoToTeam(id: string, permission: string): Promise<> {
+        return Github.orgs.addTeamRepo({id, org, repo, permission});
+    }
+
     return (): Promise<> => {
         Loader.start(`Setting ${permission} rights to ${team} on ${repo}`);
         return Promise.resolve()

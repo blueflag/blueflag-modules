@@ -7,6 +7,9 @@ import Create from './Create';
 import Delete from './Delete';
 import Protect from './Protect';
 import SetTeam from './SetTeam';
+import TestCommand from './TestCommand';
+import BranchRestrictionPush from './BranchRestrictionPush';
+import Github from './service/Github';
 
 commander
     .version(pkg.version)
@@ -39,5 +42,21 @@ commander
     .action((repo: string, team: string, permission: string): ?Promise<> => {
         return SetTeam(commander, {repo, team, permission});
     });
+
+commander
+    .command('branch-restriction-push')
+    .arguments('<repo> <branch> <users>')
+    .action((repo: string, branch: string, users: string): ?Promise<> => {
+        return BranchRestrictionPush(commander, {repo, branch, users});
+    });
+
+commander
+    .command('test-command')
+    .action((repo: string, branch: string, users: string): ?Promise<> => {
+        return TestCommand(() => {
+            return Github.repos.getProtectedBranchUserRestrictions({owner: 'blueflag', repo: 'possum-learningRecord', branch: 'master'});
+        });
+    });
+
 
 commander.parse(process.argv);

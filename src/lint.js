@@ -6,7 +6,7 @@ import path from 'path';
 
 export default function Lint(program: Object) {
     const CONFIG_DIR = path.resolve(__dirname, "./config/eslint-config.json");
-    const SRC_DIR = `${process.cwd()}/src`;
+    const SRC_DIR = program.singleFile || `${process.cwd()}/src`;
     process.exitCode = Cli.execute(
         ['NOT-REAL-OR-IMPORTANT-ESLINT-BIN']
             .concat(` ${SRC_DIR} -c ${CONFIG_DIR} --ext js,jsx --debug`.split(' '))

@@ -19,8 +19,8 @@ process.env.NODE_ENV = 'test';
 commander
     .version(pkg.version)
     .option('-m --min-coverage <n>')
-    .arguments('[cmd]')
-    .action((command: string): ?Promise<> => {
+    .arguments('[cmd] [arg]')
+    .action((command: string, arg: string): ?Promise<> => {
 
         const flags = commander.options
             .reduce((ff, ii) => ff.concat(ii.short, ii.long), []);
@@ -39,6 +39,11 @@ commander
                 log('Linting code');
                 return Lint(commander);
 
+            case 'lint-file':
+                log(`Linting ${arg}`);
+                commander.singleFile = arg;
+                return Lint(commander);
+
             case 'flow':
                 log('Checking types');
                 return Flow();
@@ -52,8 +57,6 @@ commander
     .action((glob: string): ?Promise<> => {
         return Test({glob});
     });
-
-
 
 
 commander.parse(process.argv);

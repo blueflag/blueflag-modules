@@ -13,7 +13,7 @@ export default function Coverage(program: Object) {
     let blueflagTestBin = `${cwd}/node_modules/.bin/blueflag-test`;
 
     // blueflag-test is running itself
-    if(cwd.indexOf('proto-blueflag-test') !== -1) {
+    if(cwd.indexOf('blueflag-test') !== -1) {
         nycBin = `${cwd}/node_modules/nyc/bin/nyc.js`;
         blueflagTestBin = `${cwd}/scripts/run`;
     }

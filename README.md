@@ -1,9 +1,9 @@
-# proto-blueflag-test
+# blueflag-test
 
 ## Installation
 
 ```
-yarn add --dev @blueflag/proto-blueflag-test
+yarn add --dev blueflag-test
 ```
 
 ## package.json

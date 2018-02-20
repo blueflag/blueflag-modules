@@ -8,9 +8,9 @@
      "recurse": true,
      "template": "node_modules/jsdonk",
      "jsdonk": {
-        "title": "proto-blueflag-test",
+        "title": "blueflag-test",
         "repo": {
-          "github": "https://github.com/blueflag/proto-blueflag-test"
+          "github": "https://github.com/blueflag/blueflag-test"
         },
         "sections": {
           "module": {

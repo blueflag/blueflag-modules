@@ -6,17 +6,17 @@
   "bin": {
     "blueflag-test": "lib/index.js"
   },
-  "name": "@blueflag/proto-blueflag-test",
+  "name": "blueflag-test",
   "version": "0.11.0",
-  "description": "Babel Plugin to extract flow types",
-  "license": "UNLICENSED",
+  "description": "An oppinionated set of linting and testing tools",
+  "license": "MIT",
   "author": "Allan Hortle",
   "repository": {
     "type": "git",
-    "url": "git@github.com:blueflag/proto-blueflag-test.git"
+    "url": "git@github.com:blueflag/blueflag-test.git"
   },
   "bugs": {
-    "url": "https://github.com/blueflag/proto-blueflag-test/issues"
+    "url": "https://github.com/blueflag/blueflag-test/issues"
   },
   "scripts": {
     "build": "rm -rf lib && babel src --out-dir lib --copy-files",

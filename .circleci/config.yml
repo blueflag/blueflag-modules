@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/proto-blueflag-test
+    working_directory: ~/blueflag-test
     docker:
       - image: blueflag/circle-node:0.0.4
 

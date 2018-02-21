@@ -19,3 +19,9 @@ yarn add --dev blueflag-test
     }
 }
 ```
+
+## Test
+
+Test will run all files below the current directory (not in `node_modules`) with the name `*-test`.
+
+Tests can use [ava](https://github.com/avajs/ava)

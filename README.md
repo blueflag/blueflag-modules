@@ -19,3 +19,9 @@ yarn add --dev blueflag-test
     }
 }
 ```
+
+## Test
+
+`blueflag-test test` will run all test files that match the glob: `src/**/*-test.js`.
+
+[ava](https://github.com/avajs/ava)

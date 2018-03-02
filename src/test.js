@@ -45,7 +45,7 @@ export default function Test(props: Object) {
     });
 
     api
-        .run([props.glob || 'src/**/*-test.js'])
+        .run([props.glob || '(src|packages)/**/*-test.js'])
         .then((runStatus: Object) => {
             logger.finish(runStatus);
             logger.exit(runStatus.failCount > 0 || runStatus.rejectionCount > 0 || runStatus.exceptionCount > 0 ? 1 : 0);

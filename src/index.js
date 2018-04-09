@@ -20,7 +20,7 @@ commander
     .version(pkg.version)
     .option('-m --min-coverage <n>')
     .arguments('[cmd] [arg]')
-    .action((command: string, arg: string): ?Promise<> => {
+    .action((command: string, arg: string): ?Promise<*> => {
 
         const flags = commander.options
             .reduce((ff, ii) => ff.concat(ii.short, ii.long), []);

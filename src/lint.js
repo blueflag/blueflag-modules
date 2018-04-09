@@ -3,7 +3,7 @@
 
 import {CLIEngine} from 'eslint';
 
-export default function Lint(program: Object) {
+export default function Lint(program: Object): Object {
     const fileGlob = `src/**/*.{js,jsx}`;
     const src = program.singleFile
         ? [program.singleFile]
@@ -31,5 +31,7 @@ export default function Lint(program: Object) {
     if(report.errorCount > 0) {
         process.exit(1);
     }
+
+    return cli;
 }
 

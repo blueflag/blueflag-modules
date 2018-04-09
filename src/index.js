@@ -20,14 +20,15 @@ commander
     .version(pkg.version)
     .option('-m --min-coverage <n>')
     .arguments('[cmd] [arg]')
-    .action((command: string, arg: string): ?Promise<> => {
+    .action((command: string, arg: string): ?Promise<*> => {
 
         const flags = commander.options
             .reduce((ff, ii) => ff.concat(ii.short, ii.long), []);
 
         commander.extraFlags = commander.rawArgs
             .slice(3)
-            .filter(extra => flags.every(flag =>  extra.indexOf(flag) === -1));
+            .filter(extra => flags.every(flag => extra.indexOf(flag) === -1));
+
 
         switch(command) {
             case 'coverage':

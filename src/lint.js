@@ -1,16 +1,37 @@
 #!/usr/bin/env node
 // @flow
 
-import Cli from 'eslint/lib/cli';
-import path from 'path';
+import {CLIEngine} from 'eslint';
 
-export default function Lint(program: Object) {
-    const CONFIG_DIR = path.resolve(__dirname, "./config/eslint-config.json");
-    const SRC_DIR = program.singleFile || `${process.cwd()}/src`;
-    process.exitCode = Cli.execute(
-        ['NOT-REAL-OR-IMPORTANT-ESLINT-BIN']
-            .concat(` ${SRC_DIR} -c ${CONFIG_DIR} --ext js,jsx --debug`.split(' '))
-            .concat(program.extraFlags)
-    );
+export default function Lint(program: Object): Object {
+    const fileGlob = `src/**/*.{js,jsx}`;
+    const src = program.singleFile
+        ? [program.singleFile]
+        : [
+            `${process.cwd()}/packages/**/${fileGlob}`,
+            `${process.cwd()}/${fileGlob}`
+        ]
+    ;
+
+    var cli = new CLIEngine({
+        baseConfig: {
+            baseDirectory: process.cwd(),
+            extends: [
+                "eslint-config-blueflag",
+                "eslint-config-blueflag/react",
+                "eslint-config-blueflag/flow"
+            ]
+        }
+    });
+
+    var report = cli.executeOnFiles(src);
+    var formatter = cli.getFormatter('stylish');
+    console.log(formatter(report.results));
+
+    if(report.errorCount > 0) {
+        process.exit(1);
+    }
+
+    return cli;
 }
 

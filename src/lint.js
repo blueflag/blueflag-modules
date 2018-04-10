@@ -8,7 +8,7 @@ export default function Lint(program: Object): Object {
     const src = program.singleFile
         ? [program.singleFile]
         : [
-            `${process.cwd()}/packages/**/${fileGlob}`,
+            `${process.cwd()}/packages/*/${fileGlob}`,
             `${process.cwd()}/${fileGlob}`
         ]
     ;

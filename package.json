@@ -7,7 +7,7 @@
     "blueflag-test": "lib/index.js"
   },
   "name": "blueflag-test",
-  "version": "0.13.3",
+  "version": "0.14.0",
   "description": "An oppinionated set of linting and testing tools",
   "license": "MIT",
   "author": "Allan Hortle",

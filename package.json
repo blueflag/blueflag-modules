@@ -27,7 +27,7 @@
     "lint": "./scripts/run lint",
     "lint-fix": "eslint src --ext js,jsx --fix",
     "test": "./scripts/run test",
-    "coverage": "yarn nyc --all --check-coverage --include=src/** --reporter=lcov --extension=.js ./scripts/run coverage",
+    "coverage": "./scripts/run coverage",
     "test-all": "NODE_ENV=test yarn run lint && yarn run flow && yarn run coverage"
   },
   "devDependencies": {

@@ -28,6 +28,7 @@ export default function Coverage(program: Object) {
             `--lines=${minCoverage}`,
             `--statements=${minCoverage}`,
             `--include=src`,
+            `--include=packages/**/src`,
             `--reporter=text`,
             `--reporter=lcov`
         ])

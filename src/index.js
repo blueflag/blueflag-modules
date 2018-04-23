@@ -18,7 +18,6 @@ process.env.NODE_ENV = 'test';
 
 commander
     .version(pkg.version)
-    .option('-m --min-coverage <n>')
     .arguments('[cmd] [arg]')
     .action((command: string, arg: string): ?Promise<*> => {
 
@@ -55,9 +54,17 @@ commander
 commander
     .command('test')
     .arguments('[glob]')
-    .option('-r --require <n>')
+    .option('-r --require <string>')
     .action((glob: string, {require}: Object): ?Promise<> => {
         return Test({glob, require});
+    });
+
+commander
+    .command('coverage')
+    .arguments('[testCommand...]')
+    .option('-m --min-coverage <n>')
+    .action((testCommand: string, {minCoverage}: Object): ?Promise<> => {
+        return Coverage({testCommand, minCoverage});
     });
 
 

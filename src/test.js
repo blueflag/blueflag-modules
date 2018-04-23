@@ -15,8 +15,9 @@ export default function Test(props: Object) {
         failWithoutAssertions: true,
         require: [
             path.resolve(__dirname, 'config', 'pretest'),
-            'babel-register'
-        ],
+            'babel-register',
+            props.require && path.resolve(props.require)
+        ].filter(ii => ii),
         cacheEnabled: true,
         powerAssert: true,
         babelConfig: {

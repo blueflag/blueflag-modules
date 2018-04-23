@@ -55,8 +55,9 @@ commander
 commander
     .command('test')
     .arguments('[glob]')
-    .action((glob: string): ?Promise<> => {
-        return Test({glob});
+    .option('-r --require <n>')
+    .action((glob: string, {require}: Object): ?Promise<> => {
+        return Test({glob, require});
     });
 
 

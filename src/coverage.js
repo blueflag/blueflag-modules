@@ -6,7 +6,7 @@ import path from 'path';
 
 
 export default function Coverage(program: Object) {
-    const {minCoverage = 80, testCommand} = program;
+    const {minCoverage = 80, testCommand = []} = program;
     const cwd = process.cwd();
 
     let nycBin = path.resolve(__dirname, '../node_modules/.bin/nyc');
@@ -33,7 +33,10 @@ export default function Coverage(program: Object) {
             `--reporter=text`,
             `--reporter=lcov`
         ])
-        .concat(testCommand || [blueflagTestBin, `test`])
+        .concat(testCommand.length > 0
+            ? testCommand
+            : [blueflagTestBin, `test`]
+        )
     ;
 
     ChildProcess

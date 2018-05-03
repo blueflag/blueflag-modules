@@ -49,8 +49,9 @@ export default function Test(props: Object) {
         .run(props.glob
             ? [props.glob]
             : [
-                'packages/*/!(lib)/**/*-test.js',
-                'src/**/*-test.js'
+                props.monorepo
+                    ? 'packages/*/!(lib)/**/*-test.js'
+                    : 'src/**/*-test.js'
             ]
         )
         .then((runStatus: Object) => {

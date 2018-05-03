@@ -3,13 +3,14 @@
 
 import {CLIEngine} from 'eslint';
 
-export default function Lint(program: Object): Object {
+export default function Lint({monorepo, singleFile}: Object): Object {
     const fileGlob = `src/**/*.{js,jsx}`;
-    const src = program.singleFile
-        ? [program.singleFile]
+    const src = singleFile
+        ? [singleFile]
         : [
-            `${process.cwd()}/packages/*/${fileGlob}`,
-            `${process.cwd()}/${fileGlob}`
+            monorepo
+                ? `${process.cwd()}/packages/*/${fileGlob}`
+                : `${process.cwd()}/${fileGlob}`
         ]
     ;
 

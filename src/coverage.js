@@ -6,7 +6,11 @@ import path from 'path';
 
 
 export default function Coverage(program: Object) {
-    const {minCoverage = 80, testCommand = []} = program;
+    const {
+        minCoverage = 80,
+        monorepo = false,
+        testCommand = []
+    } = program;
     const cwd = process.cwd();
 
     let nycBin = path.resolve(__dirname, '../node_modules/.bin/nyc');
@@ -18,8 +22,7 @@ export default function Coverage(program: Object) {
         blueflagTestBin = `${cwd}/scripts/run`;
     }
 
-
-    const args = []
+    const args: string[] = []
         .concat([
             `--all`,
             `--check-coverage`,
@@ -31,12 +34,18 @@ export default function Coverage(program: Object) {
             `--include=packages/*/src`,
             `--extension=jsx`,
             `--reporter=text`,
-            `--reporter=lcov`
+            `--reporter=lcov`,
+            (monorepo ? `--exclude=packages/*-docs` : ``)
         ])
         .concat(testCommand.length > 0
             ? testCommand
-            : [blueflagTestBin, `test`]
+            : [
+                blueflagTestBin,
+                `test`,
+                (monorepo ? `--monorepo` : ``)
+            ]
         )
+        .filter(ii => ii)
     ;
 
     ChildProcess

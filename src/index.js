@@ -2,7 +2,6 @@
 // @flow
 
 import commander from 'commander';
-import pkg from '../package.json';
 import chalk from 'chalk';
 
 import Test from './test';
@@ -17,54 +16,39 @@ function log(...args: Array<any>) {
 process.env.NODE_ENV = 'test';
 
 commander
-    .version(pkg.version)
-    .arguments('[cmd] [arg]')
-    .action((command: string, arg: string): ?Promise<*> => {
-
-        const flags = commander.options
-            .reduce((ff, ii) => ff.concat(ii.short, ii.long), []);
-
-        commander.extraFlags = commander.rawArgs
-            .slice(3)
-            .filter(extra => flags.every(flag => extra.indexOf(flag) === -1));
-
-
-        switch(command) {
-            case 'coverage':
-                log('Covering tests');
-                Coverage(commander);
-                return;
-
-            case 'lint':
-                log('Linting code');
-                return Lint(commander);
-
-            case 'lint-file':
-                log(`Linting ${arg}`);
-                commander.singleFile = arg;
-                return Lint(commander);
-
-            case 'flow':
-                log('Checking types');
-                return Flow();
-        }
+    .command('flow')
+    .action((): ?Promise<*> => {
+        log('Running flow');
+        return Flow();
     });
 
+commander
+    .command('lint')
+    .arguments('[singleFile]')
+    .option('-M --monorepo')
+    .action((singleFile: string, {require, monorepo}: Object): ?Promise<*> => {
+        log('Running linter');
+        return Lint({singleFile, require, monorepo});
+    });
 
 commander
     .command('test')
     .arguments('[glob]')
     .option('-r --require <string>')
-    .action((glob: string, {require}: Object): ?Promise<> => {
-        return Test({glob, require});
+    .option('-M --monorepo')
+    .action((glob: string, {require, monorepo}: Object): ?Promise<> => {
+        log('Running tests');
+        return Test({glob, require, monorepo});
     });
 
 commander
     .command('coverage')
     .arguments('[testCommand...]')
     .option('-m --min-coverage <n>')
-    .action((testCommand: string, {minCoverage}: Object): ?Promise<> => {
-        return Coverage({testCommand, minCoverage});
+    .option('-M --monorepo')
+    .action((testCommand: string[], {minCoverage, monorepo}: Object): ?Promise<> => {
+        log('Running coverage');
+        return Coverage({testCommand, minCoverage, monorepo});
     });
 
 

@@ -22,7 +22,7 @@ export default function Coverage(program: Object) {
         blueflagTestBin = `${cwd}/scripts/run`;
     }
 
-    const args = []
+    const args: string[] = []
         .concat([
             `--all`,
             `--check-coverage`,
@@ -35,14 +35,14 @@ export default function Coverage(program: Object) {
             `--extension=jsx`,
             `--reporter=text`,
             `--reporter=lcov`,
-            monorepo && `--exclude=packages/*-docs`
+            (monorepo ? `--exclude=packages/*-docs` : ``)
         ])
         .concat(testCommand.length > 0
             ? testCommand
             : [
                 blueflagTestBin,
                 `test`,
-                monorepo && `--monorepo`
+                (monorepo ? `--monorepo` : ``)
             ]
         )
         .filter(ii => ii)

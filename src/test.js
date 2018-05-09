@@ -14,15 +14,15 @@ export default function Test(props: Object) {
         failFast: true,
         failWithoutAssertions: true,
         require: [
-            path.resolve(__dirname, 'config', 'pretest'),
             'babel-register',
+            path.resolve(__dirname, 'config', 'pretest'),
             props.require && path.resolve(props.require)
         ].filter(ii => ii),
-        cacheEnabled: true,
+        cacheEnabled: false,
         powerAssert: true,
         babelConfig: {
+            babelrc: false,
             presets: ['blueflag'],
-            plugins: ['istanbul'],
             sourceMaps: 'inline'
         },
         resolveTestsFrom: TEST_DIR,

@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/blueflag-test
     docker:
-      - image: blueflag/circle-node:0.0.4
+      - image: blueflag/circle-node:0.0.5
 
     steps:
       - checkout

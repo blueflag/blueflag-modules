@@ -6,7 +6,7 @@ const proxyquire = require('proxyquire').noCallThru();
 
 const flowSpy = stub().callsFake(() => ({on: () => {}}));
 
-const flow = proxyquire('./flow', {
+const flow = proxyquire('../flow', {
     'child_process': {
         spawn: flowSpy
     }

@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 // @flow
 
 import ChildProcess from 'child_process';

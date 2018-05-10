@@ -36,7 +36,7 @@ commander
     .arguments('[glob]')
     .option('-r --require <string>')
     .option('-M --monorepo')
-    .action((glob: string, {require, monorepo}: Object): ?Promise<> => {
+    .action((glob: string, {require, monorepo}: Object): ?Promise<*> => {
         log('Running tests');
         return Test({glob, require, monorepo});
     });
@@ -46,7 +46,7 @@ commander
     .arguments('[testCommand...]')
     .option('-m --min-coverage <n>')
     .option('-M --monorepo')
-    .action((testCommand: string[], {minCoverage, monorepo}: Object): ?Promise<> => {
+    .action((testCommand: string[], {minCoverage, monorepo}: Object): ?Promise<*> => {
         log('Running coverage');
         return Coverage({testCommand, minCoverage, monorepo});
     });

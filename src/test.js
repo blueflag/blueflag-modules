@@ -7,22 +7,22 @@ import Logger from 'ava/lib/logger';
 import VerboseReporter from 'ava/lib/reporters/verbose';
 
 
-export default function Test(props: Object) {
+export default function Test(props: Object): Promise<*> {
     const TEST_DIR = process.cwd();
 
     const api = new Api({
         failFast: true,
         failWithoutAssertions: true,
         require: [
-            path.resolve(__dirname, 'config', 'pretest'),
             'babel-register',
+            path.resolve(__dirname, 'config', 'pretest'),
             props.require && path.resolve(props.require)
         ].filter(ii => ii),
-        cacheEnabled: true,
+        cacheEnabled: false,
         powerAssert: true,
         babelConfig: {
+            babelrc: false,
             presets: ['blueflag'],
-            plugins: ['istanbul'],
             sourceMaps: 'inline'
         },
         resolveTestsFrom: TEST_DIR,
@@ -35,7 +35,6 @@ export default function Test(props: Object) {
 
     logger.start();
 
-
     api.on('test-run', (runStatus: Object) => {
         reporter.api = runStatus;
         runStatus.on('test', logger.test);
@@ -45,7 +44,7 @@ export default function Test(props: Object) {
         runStatus.on('stderr', logger.stderr);
     });
 
-    api
+    return api
         .run(props.glob
             ? [props.glob]
             : [
@@ -57,13 +56,6 @@ export default function Test(props: Object) {
         .then((runStatus: Object) => {
             logger.finish(runStatus);
             logger.exit(runStatus.failCount > 0 || runStatus.rejectionCount > 0 || runStatus.exceptionCount > 0 ? 1 : 0);
-        })
-        .catch((err: Error) => {
-            // Don't swallow exceptions. Note that any expected error should already
-            // have been logged.
-            setImmediate(() => {
-                throw err;
-            });
         });
 }
 

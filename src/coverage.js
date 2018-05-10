@@ -41,7 +41,7 @@ export default function Coverage(program: Object): Promise<*> {
                     `--reporter=lcov`,
                     `--exclude=**/lib/**`,
                     `--exclude=**/dist/**`,
-                    `--exclude=**/__tests__/**`,
+                    `--exclude=**/__test__/**`,
                     (monorepo ? `--exclude=packages/*-docs` : ``)
                 ])
                 .concat(testCommand.length > 0

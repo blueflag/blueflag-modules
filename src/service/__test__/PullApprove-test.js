@@ -9,7 +9,7 @@ const PullApprove = proxyquire('../PullApprove', {
 }).default;
 
 
-test('PullApprove.add', (tt: Object): Promise<> => {
+test('PullApprove.add', (tt: Object): Promise<any> => {
     return PullApprove
         .add({owner: 'foo', repo: 'bar'})
         .then(({url, payload}: Object) => {

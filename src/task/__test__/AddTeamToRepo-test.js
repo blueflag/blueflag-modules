@@ -16,7 +16,7 @@ const stubbAddTeamToRepo = (teams) => proxyquire('../AddTeamToRepo', {
 }).default;
 
 
-test('AddTeamToRepo', (tt: Object): Promise<> => {
+test('AddTeamToRepo', (tt: Object): Promise<any> => {
 
     const AddTeamToRepo = stubbAddTeamToRepo([
         {name: 'baz', id: 1}

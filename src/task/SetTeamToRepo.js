@@ -3,13 +3,15 @@ import Github from '../service/Github';
 import Loader from '../request/Loader';
 
 
-export default function AddTeamToRepo(org: string, repo: string, team: string, access: string): Function {
+export default function SetTeamToRepo(args: Object): Function {
+    const {repo, team, permission, org} = args;
+
     function addRepoToTeam(id: string, permission: string): Promise<any> {
         return Github.orgs.addTeamRepo({id, org, repo, permission});
     }
 
     return (): Promise<any> => {
-        Loader.start('Adding team to repo');
+        Loader.start(`Setting ${permission} rights to ${team} on ${repo}`);
         return Promise.resolve()
             .then(() => Github.orgs.getTeams({org}))
             .then((teams: Object): Object => {
@@ -23,7 +25,7 @@ export default function AddTeamToRepo(org: string, repo: string, team: string, a
                     return Promise.reject(`${org} is missing a '${team}' team.`);
                 }
 
-                return addRepoToTeam(teams[team].id, access);
+                return addRepoToTeam(teams[team].id, permission);
             });
     };
 }

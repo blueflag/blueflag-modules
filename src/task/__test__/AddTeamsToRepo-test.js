@@ -16,7 +16,7 @@ const stubbAddTeamsToRepo = (teams) => proxyquire('../AddTeamsToRepo', {
 }).default;
 
 
-test('AddTeamsToRepo', (tt: Object): Promise<> => {
+test('AddTeamsToRepo', (tt: Object): Promise<any> => {
 
     const AddTeamsToRepo = stubbAddTeamsToRepo([
         {name: 'Admins', id: 1},
@@ -32,7 +32,7 @@ test('AddTeamsToRepo', (tt: Object): Promise<> => {
 });
 
 
-test('AddTeamsToRepo failure', (tt: Object): Promise<> => {
+test('AddTeamsToRepo failure', (tt: Object): Promise<any> => {
     const AddTeamsToRepo = stubbAddTeamsToRepo([
         {name: 'Admins', id: 1},
         {name: 'Zevelopers', id: 2},
@@ -45,7 +45,7 @@ test('AddTeamsToRepo failure', (tt: Object): Promise<> => {
 });
 
 
-test('AddTeamsToRepo failure', (tt: Object): Promise<> => {
+test('AddTeamsToRepo failure', (tt: Object): Promise<any> => {
     const AddTeamsToRepo = stubbAddTeamsToRepo([
         {name: 'Zadmins', id: 1},
         {name: 'Developers', id: 2},
@@ -58,7 +58,7 @@ test('AddTeamsToRepo failure', (tt: Object): Promise<> => {
 });
 
 
-test('AddTeamsToRepo failure', (tt: Object): Promise<> => {
+test('AddTeamsToRepo failure', (tt: Object): Promise<any> => {
     const AddTeamsToRepo = stubbAddTeamsToRepo([
         {name: 'Admins', id: 1},
         {name: 'Developers', id: 2},

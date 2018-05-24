@@ -11,7 +11,7 @@ function requester(): Object {
 }
 
 export default {
-    add: ({owner, repo}: Object): Promise<> => {
+    add: ({owner, repo}: Object): Promise<any> => {
         return requester().post(`orgs/${owner}/repos/`, {name: repo});
     }
 };

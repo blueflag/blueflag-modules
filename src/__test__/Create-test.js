@@ -22,7 +22,7 @@ function stubFile(inquireData) {
 
 
 
-test('Create returns a promise', (tt: Object): Promise<> => {
+test('Create returns a promise', (tt: Object): Promise<any> => {
     var Create = stubFile({repo: 'foo', remove: true});
     return Create({}, 'foo/foo').then(() => tt.pass());
 });

@@ -3,7 +3,7 @@ import Github from '../service/Github';
 import Loader from '../request/Loader';
 
 export default function CreateRepo(org: string, name: string): Function {
-    return (): Promise<> => {
+    return (): Promise<any> => {
         Loader.start('Creating repository.');
         return Github
             .repos

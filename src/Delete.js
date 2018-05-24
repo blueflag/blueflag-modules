@@ -6,7 +6,7 @@ import inquirer from 'inquirer';
 import Console from './request/Console';
 
 
-export default function Create(program: Object, arg: string): Promise<> {
+export default function Create(program: Object, arg: string): Promise<any> {
     const [owner, repo] = arg.split('/');
     return inquirer
         .prompt([

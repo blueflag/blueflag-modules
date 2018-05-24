@@ -19,7 +19,7 @@ function stubFile(rejectData) {
 }
 
 
-test('PullApproveAdd', (tt: Object): Promise<> => {
+test('PullApproveAdd', (tt: Object): Promise<any> => {
     const PullApproveAdd = stubFile();
     return PullApproveAdd('foo', 'bar')()
         .then((payload: Object) => {
@@ -29,7 +29,7 @@ test('PullApproveAdd', (tt: Object): Promise<> => {
 });
 
 
-test('PullApproveAdd reject', (tt: Object): Promise<> => {
+test('PullApproveAdd reject', (tt: Object): Promise<any> => {
     const PullApproveAdd = stubFile({
         data: {
             response: {
@@ -45,7 +45,7 @@ test('PullApproveAdd reject', (tt: Object): Promise<> => {
 });
 
 
-test('PullApproveAdd reject duplicate keys', (tt: Object): Promise<> => {
+test('PullApproveAdd reject duplicate keys', (tt: Object): Promise<any> => {
     const PullApproveAdd = stubFile({
         data: {
             response: {

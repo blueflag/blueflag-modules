@@ -35,7 +35,7 @@ commander
     .arguments('<repo>')
     .option('-c --circle-token <value>')
     .option('-p --pullapprove-token <value>')
-    .option('-P --pullapprove-template [template=default]', 'Pull Approve template', /^(default|library)/g, 'default')
+    .option('-P --pullapprove-template [template=default]', 'Pull Approve template', /^(default|library|false)/g, 'default')
     .action((repo: string, command: Object): ?Promise<any> => {
         return Create(command, repo);
     });
@@ -46,7 +46,7 @@ commander
     .arguments('<repo>')
     .option('-c --circle-token <value>')
     .option('-p --pullapprove-token <value>')
-    .option('-P --pullapprove-template [template=default]', 'Pull Approve template', /^(default|library)/g, 'default')
+    .option('-P --pullapprove-template [template=default]', 'Pull Approve template', /^(default|library|false)/g, 'default')
     .action((repo: string, command: Object): ?Promise<any> => {
         return Protect(command, repo);
     });

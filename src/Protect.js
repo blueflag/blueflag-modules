@@ -17,7 +17,7 @@ export default function Protect(program: Object, arg: string): Promise<any> {
         .then(AddBranchProtection(org, name))
         .then(AddTeamsToRepo(org, name))
         .then(FollowRepoBuild(org, name))
-        .then(PullApproveAdd(org, name))
+        .then(program.pullapproveTemplate !== 'false' ? PullApproveAdd(org, name) : () => {})
         .then(() => {
             Loader.stop();
             Console.success('Repo Protected!');

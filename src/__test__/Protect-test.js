@@ -19,6 +19,6 @@ const Protect = proxyquire('../Protect', {
 }).default;
 
 
-test('Protect returns a promise', (tt: Object): Promise<> => {
+test('Protect returns a promise', (tt: Object): Promise<any> => {
     return Protect({}, 'foo/bar').then(() => tt.pass());
 });

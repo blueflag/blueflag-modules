@@ -6,15 +6,11 @@ import Loader from '../request/Loader';
 export default function SetTeamToRepo(args: Object): Function {
     const {repo, team, permission, org} = args;
 
-    function addRepoToTeam(id: string, permission: string): Promise<> {
+    function addRepoToTeam(id: string, permission: string): Promise<any> {
         return Github.orgs.addTeamRepo({id, org, repo, permission});
     }
 
-    function addRepoToTeam(id: string, permission: string): Promise<> {
-        return Github.orgs.addTeamRepo({id, org, repo, permission});
-    }
-
-    return (): Promise<> => {
+    return (): Promise<any> => {
         Loader.start(`Setting ${permission} rights to ${team} on ${repo}`);
         return Promise.resolve()
             .then(() => Github.orgs.getTeams({org}))
@@ -24,7 +20,7 @@ export default function SetTeamToRepo(args: Object): Function {
                     return rr;
                 }, {});
             })
-            .then((teams: Object): Promise<> => {
+            .then((teams: Object): Promise<any> => {
                 if(!teams[team]) {
                     return Promise.reject(`${org} is missing a '${team}' team.`);
                 }

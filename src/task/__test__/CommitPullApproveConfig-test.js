@@ -19,7 +19,7 @@ function stubFile(reject: ?Object): * {
 
 
 
-test('CommitPullApproveConfig', (tt: Object): Promise<> => {
+test('CommitPullApproveConfig', (tt: Object): Promise<any> => {
     const CommitPullApproveConfig = stubFile();
     return CommitPullApproveConfig('foo', 'bar')()
         .then((payload: Object) => {
@@ -33,7 +33,7 @@ test('CommitPullApproveConfig', (tt: Object): Promise<> => {
 
 
 
-test('CommitPullApproveConfig reject', (tt: Object): Promise<> => {
+test('CommitPullApproveConfig reject', (tt: Object): Promise<any> => {
     const CommitPullApproveConfig = stubFile({
         code: 'foo'
     });
@@ -42,7 +42,7 @@ test('CommitPullApproveConfig reject', (tt: Object): Promise<> => {
         .catch(err => tt.is(err.code, 'foo'));
 });
 
-test('CommitPullApproveConfig pass through if pullapprove already exists', (tt: Object): Promise<> => {
+test('CommitPullApproveConfig pass through if pullapprove already exists', (tt: Object): Promise<any> => {
     const CommitPullApproveConfig = stubFile({
         code: 422,
         message: `\\"sha\\" wasn't supplied.`

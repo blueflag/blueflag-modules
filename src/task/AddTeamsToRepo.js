@@ -4,11 +4,11 @@ import Loader from '../request/Loader';
 
 
 export default function AddTeamsToRepo(org: string, repo: string): Function {
-    function addRepoToTeam(id: string, permission: string): Promise<> {
+    function addRepoToTeam(id: string, permission: string): Promise<any> {
         return Github.orgs.addTeamRepo({id, org, repo, permission});
     }
 
-    return (): Promise<> => {
+    return (): Promise<any> => {
         Loader.start('Adding teams to repo');
         return Promise.resolve()
             .then(() => Github.orgs.getTeams({org}))
@@ -18,7 +18,7 @@ export default function AddTeamsToRepo(org: string, repo: string): Function {
                     return rr;
                 }, {});
             })
-            .then((teams: Object): Promise<> => {
+            .then((teams: Object): Promise<any> => {
                 if(!teams['Developers']) {
                     return Promise.reject(`${org} is missing a 'Developers' team.`);
                 }

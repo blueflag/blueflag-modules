@@ -5,7 +5,7 @@ import Console from './request/Console';
 import AddProtectedBranchUserRestrictions from './task/AddProtectedBranchUserRestrictions';
 
 
-export default function BranchRestrictionPush(program: Object, args: Object): Promise<> {
+export default function BranchRestrictionPush(program: Object, args: Object): Promise<any> {
     const [owner, repo] = args.repo.split('/');
     const users = args.users.split(',');
     return Promise.resolve()

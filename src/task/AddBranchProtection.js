@@ -3,7 +3,7 @@ import Github from '../service/Github';
 import Loader from '../request/Loader';
 
 export default function AddBranchProtection(owner: string, repo: string): Function {
-    return (): Promise<> => {
+    return (): Promise<any> => {
         Loader.start('Adding branch protection.');
         return Github.repos
             .updateBranchProtection({

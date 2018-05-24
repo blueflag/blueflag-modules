@@ -8,9 +8,10 @@ import FollowRepoBuild from './task/FollowRepoBuild';
 import CommitPullApproveConfig from './task/CommitPullApproveConfig';
 import PullApproveAdd from './task/PullApproveAdd';
 
-export default function Protect(program: Object, arg: string): Promise<> {
+export default function Protect(program: Object, arg: string): Promise<any> {
     const [org, name] = arg.split('/');
     Loader.start();
+
     return Promise.resolve()
         .then(CommitPullApproveConfig(org, name, program.pullapproveTemplate))
         .then(AddBranchProtection(org, name))

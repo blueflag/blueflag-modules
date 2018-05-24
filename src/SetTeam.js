@@ -5,7 +5,7 @@ import Console from './request/Console';
 import SetTeamToRepo from './task/SetTeamToRepo';
 
 
-export default function SetTeam(program: Object, args: Object): Promise<> {
+export default function SetTeam(program: Object, args: Object): Promise<any> {
     const [org, repo] = args.repo.split('/');
     Loader.start();
     return Promise.resolve()

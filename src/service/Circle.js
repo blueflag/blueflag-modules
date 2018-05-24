@@ -11,10 +11,10 @@ function requester(): Object {
 }
 
 export default {
-    follow: ({owner, repo}: Object): Promise<> => {
+    follow: ({owner, repo}: Object): Promise<any> => {
         return requester().post(`project/github/${owner}/${repo}/follow`);
     }
-    // createUserCheckoutKey: ({owner, repo}: Object): Promise<> => {
+    // createUserCheckoutKey: ({owner, repo}: Object): Promise<any> => {
     //     return requester().post(`project/github/${owner}/${repo}/checkout-key`, {
     //         type: 'github-user-key'
     //     });

@@ -22,17 +22,17 @@ function stubFile(inquireData) {
 
 
 
-test('Delete returns a promise', (tt: Object): Promise<> => {
+test('Delete returns a promise', (tt: Object): Promise<any> => {
     var Delete = stubFile({repo: 'foo', remove: true});
     return Delete({}, 'foo/foo').then(() => tt.pass());
 });
 
-test('Delete rejects if repo doesnt match', (tt: Object): Promise<> => {
+test('Delete rejects if repo doesnt match', (tt: Object): Promise<any> => {
     var Delete = stubFile({repo: 'foo', remove: true});
     return Delete({}, 'foo/bar').catch(() => tt.pass());
 });
 
-test('Delete rejects if remove is false', (tt: Object): Promise<> => {
+test('Delete rejects if remove is false', (tt: Object): Promise<any> => {
     var Delete = stubFile({repo: 'bar', remove: false});
     return Delete({}, 'foo/bar').catch(() => tt.pass());
 });

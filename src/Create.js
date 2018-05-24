@@ -9,7 +9,7 @@ import FollowRepoBuild from './task/FollowRepoBuild';
 import CreateRepo from './task/CreateRepo';
 import PullApproveAdd from './task/PullApproveAdd';
 
-export default function Create(program: Object, arg: string): Promise<> {
+export default function Create(program: Object, arg: string): Promise<any> {
     const [org, name] = arg.split('/');
     return Promise.resolve()
         .then(CreateRepo(org, name))

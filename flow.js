@@ -10,8 +10,6 @@ module.exports = {
         "flowtype/no-dupe-keys": 2, // Don't allow duplicates in object annotations
         "flowtype/no-primitive-constructor-types": 2, // Don't allow use of String, Boolean, etc
         "flowtype/object-type-delimiter": [2, "comma"], // Enforce commas for object annotation delimiters
-        "flowtype/require-parameter-type": [2, {"excludeArrowFunctions": "expressionsOnly" }], // Require param type for everything except expression only arrow functions
-        "flowtype/require-return-type": [2, "always", {"excludeArrowFunctions": "expressionsOnly"}],
         "flowtype/require-valid-file-annotation": [2, "always"], // enforce having @flow at top of file
         "flowtype/semi": [2, "always"], // require semicolon after type aliases
         "flowtype/space-after-type-colon": [2, "always"], // Require space after type annotation colon

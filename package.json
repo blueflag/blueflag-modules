@@ -28,7 +28,7 @@
     "lint": "./scripts/run lint",
     "lint-fix": "eslint src --ext js,jsx --fix",
     "test": "./scripts/run test",
-    "coverage": "./scripts/run coverage",
+    "coverage": "./scripts/run coverage -m 75",
     "test-all": "NODE_ENV=test yarn run lint && yarn run flow && yarn run coverage"
   },
   "devDependencies": {
@@ -48,7 +48,7 @@
     "commander": "^2.11.0",
     "dotenv": "^4.0.0",
     "eslint": "^4.7.2",
-    "eslint-config-blueflag": "^0.7.0",
+    "eslint-config-blueflag": "^0.8.0",
     "eslint-plugin-flowtype": "^2.36.0",
     "eslint-plugin-react": "^7.4.0",
     "flow-bin": "^0.75.0",

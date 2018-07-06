@@ -4,7 +4,7 @@
 import flowCoverageReport from 'flow-coverage-report';
 import FlowBin from 'flow-bin';
 
-export default function FlowCoverage(program: *) {
+export default function FlowCoverage(program: *): Promise<*> {
     const {monorepo = false} = program;
     const {minCoverage = 50} = program;
 
@@ -32,6 +32,6 @@ export default function FlowCoverage(program: *) {
             showMeterBar: false
         }
     };
-    flowCoverageReport(config)
-        .catch(err => console.error(err));
+
+    return flowCoverageReport(config);
 }

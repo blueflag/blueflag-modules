@@ -7,6 +7,7 @@ import chalk from 'chalk';
 import Test from './test';
 import Lint from './lint';
 import Flow from './flow';
+import FlowCoverage from './flowCoverage';
 import Coverage from './coverage';
 
 function log(...args: Array<any>) {
@@ -20,6 +21,15 @@ commander
     .action((): ?Promise<*> => {
         log('Running flow');
         return Flow();
+    });
+
+commander
+    .command('flow-coverage')
+    .option('-M --monorepo')
+    .option('-m --min-coverage <n>')
+    .action(({monorepo, minCoverage}: *): ?Promise<*> => {
+        log('Running flow coverage');
+        return FlowCoverage({monorepo, minCoverage});
     });
 
 commander

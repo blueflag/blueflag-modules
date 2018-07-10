@@ -2,7 +2,8 @@
   "main": "lib/index.js",
   "files": [
     "lib",
-    "flow-typed-shims"
+    "flow-typed-shims",
+    "jest-preset.js"
   ],
   "bin": {
     "blueflag-test": "lib/index.js"
@@ -20,7 +21,7 @@
     "url": "https://github.com/blueflag/blueflag-test/issues"
   },
   "scripts": {
-    "build": "rm -rf lib && babel src --out-dir lib --copy-files",
+    "build": "rm -rf lib && babel src --out-dir lib --copy-files --ignore **/*-test.js",
     "prepublish": "yarn run build",
     "watch": "yarn run build -- -w",
     "docs": "jsdoc -c jsdoc.json",
@@ -42,18 +43,25 @@
     "ava": "^0.25.0",
     "babel-cli": "^6.23.0",
     "babel-core": "^6.26.3",
+    "babel-jest": "^23.2.0",
     "babel-preset-blueflag": "^0.6.0",
     "babel-register": "^6.23.0",
     "chalk": "^2.1.0",
     "commander": "^2.11.0",
     "dotenv": "^4.0.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-matchers": "^6.0.2",
     "eslint": "^4.7.2",
     "eslint-config-blueflag": "^0.8.0",
     "eslint-plugin-flowtype": "^2.36.0",
     "eslint-plugin-react": "^7.4.0",
-    "flow-bin": "^0.75.0",
+    "flow-bin": "^0.76.0",
     "flow-coverage-report": "^0.5.0",
     "fs-extra": "^6.0.0",
+    "jest": "^23.3.0",
+    "jest-environment-enzyme": "^6.0.2",
+    "jest-enzyme": "^6.0.2",
     "nyc": "^11.7.2",
     "proxyquire": "^1.7.10",
     "sinon": "^5.0.7"

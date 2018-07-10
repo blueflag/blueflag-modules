@@ -2,8 +2,7 @@
 module.exports = {
     collectCoverage: true,
     collectCoverageFrom: [
-        "packages/**/*.{js,jsx}",
-        "src/**/*.{js,jsx}",
+        "(src|packages)/**/*.{js,jsx}",
         "!**/lib/**",
         "!**/node_modules/**"
     ],

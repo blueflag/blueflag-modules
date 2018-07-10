@@ -28,7 +28,7 @@ and extends expect with some handy enzyme matchers.
 
 ```
 module.exports = {
-    extend: 'blueflag-test',
+    preset 'blueflag-test',
     ...config overrides
 }
 ```

@@ -1,15 +1,14 @@
-var env = require('babel-preset-env');
-var react = require('babel-preset-react');
-var stage3 = require('babel-preset-stage-3');
-var transformRuntime = require('babel-plugin-transform-runtime');
-var transfromClassProperties = require('babel-plugin-transform-class-properties');
+var env = require('@babel/preset-env');
+var react = require('@babel/preset-react');
+var transformRuntime = require('@babel/plugin-transform-runtime');
+var transfromClassProperties = require('@babel/plugin-proposal-class-properties');
+
 
 module.exports = function(context, options) {
     options = options || {};
 
     var disabled = options.disabled || [];
     var browser = options.browser || false;
-    var library = options.library || false;
     var config = options.config || {};
 
     var presets = [];
@@ -30,14 +29,6 @@ module.exports = function(context, options) {
         presets.push([
             react,
             config.react
-        ]);
-    }
-
-    // babel-preset-stage-3
-    if(disabled.indexOf('stage-3') === -1) {
-        presets.push([
-            stage3,
-            config['stage-3']
         ]);
     }
 

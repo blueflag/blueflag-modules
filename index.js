@@ -1,5 +1,6 @@
 var env = require('@babel/preset-env');
 var react = require('@babel/preset-react');
+var flow = require('@babel/preset-flow');
 var transformRuntime = require('@babel/plugin-transform-runtime');
 var transfromClassProperties = require('@babel/plugin-proposal-class-properties');
 
@@ -29,6 +30,14 @@ module.exports = function(context, options) {
         presets.push([
             react,
             config.react
+        ]);
+    }
+
+    // babel-preset-flow
+    if(disabled.indexOf('flow') === -1) {
+        presets.push([
+            flow,
+            config.flow
         ]);
     }
 

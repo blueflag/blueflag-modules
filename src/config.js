@@ -88,7 +88,6 @@ export default function config({name, mode, dirname}: *): * {
     const production = mode === 'production';
     const src = path.join(dirname, 'src');
     const build = path.join(dirname, 'build');
-    console.log(src, build);
     return {
         cache: production,
         devtool: production ? 'source-map' : undefined,

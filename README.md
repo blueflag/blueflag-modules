@@ -21,8 +21,18 @@ module.exports = function(env, args) {
 }
 ```
 
+```json
+// package.json
+{
+    "scripts": {
+        "build": "webpack -p",
+        "watch": "webpack-dev-server --progress --hot -d",
+    }
+}
+```
 
-### Default Export
+
+## Default Export
 Higher-order function that returns a webpack-merge merging function.
 
 * `name` - The name of your project.
@@ -36,4 +46,14 @@ extend({
     dirname: string 
 }): Function 
 ```
+
+
+## Features
+* SCSS/CSS loading
+* Image Loading
+* Graphql Loading
+* React
+* Dev Server
+* `~` aliasing to `<ROOT>/src`
+
 

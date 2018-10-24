@@ -42,7 +42,7 @@ const FILE_LOADER = {
     }
 };
 
-const POSTCSS_USE_ENTRY = {
+const POSTCSS_LOADER = {
     loader: 'postcss-loader',
     options: {
         ident: 'postcss',
@@ -53,41 +53,34 @@ const POSTCSS_USE_ENTRY = {
     }
 };
 
-const CSS_DEV_LOADER = {
-    test: /\.scss?$/,
-    include: path.resolve('./src'),
-    use: [
-        {
-            loader: 'style-loader',
-            options: {
-                sourceMap: true,
-                convertToAbsoluteUrls: true
-            }
-        },
-        'css-loader?sourceMap',
-        POSTCSS_USE_ENTRY,
-        'sass-loader?sourceMap'
-    ]
-};
-
-const CSS_PROD_LOADER = {
-    test: /\.scss?$/,
-    include: path.resolve('./src'),
-    use: [
-        {
-            loader: MiniCssExtractPlugin.loader
-        },
-        'css-loader',
-        POSTCSS_USE_ENTRY,
-        'sass-loader'
-    ]
-};
-
 
 export default function config({name, mode, dirname}: *): * {
     const production = mode === 'production';
     const src = path.join(dirname, 'src');
     const build = path.join(dirname, 'build');
+
+    const CSS_LOADER = {
+        test: /\.scss?$/,
+        include: path.resolve('./src'),
+        use: [
+            // extract to file or style tag
+            production
+                ? {
+                    loader: MiniCssExtractPlugin.loader
+                }
+                : {
+                    loader: 'style-loader',
+                    options: {
+                        sourceMap: true,
+                        convertToAbsoluteUrls: true
+                    }
+                },
+            'css-loader',
+            POSTCSS_LOADER,
+            'sass-loader'
+        ].filter(ii => ii)
+    };
+
     return {
         cache: production,
         devtool: production ? 'source-map' : undefined,
@@ -107,22 +100,26 @@ export default function config({name, mode, dirname}: *): * {
             extensions: ['.jsx', '.js']
         },
         plugins: [
-            new CleanWebpackPlugin(['build']),
+            production && new MiniCssExtractPlugin({
+                filename: `[name]-[hash].css`
+            }),
+            new CleanWebpackPlugin(['build'], {
+                root: dirname,
+                verbose: true,
+                allowExternal: true
+            }),
             new webpack.IgnorePlugin(/\.flow$/),
             new HtmlWebpackPlugin({
                 template: 'src/index.static.jsx'
-            }),
-            !production && new MiniCssExtractPlugin({
-                filename: `[name]-[hash].css`
             })
 
-        ].filter(Boolean),
+        ].filter(ii => ii),
         module: {
             rules: [
                 JS_LOADER,
                 GRAPHQL_LOADER,
                 FILE_LOADER,
-                production ? CSS_PROD_LOADER : CSS_DEV_LOADER
+                CSS_LOADER
             ]
         },
         devServer: {

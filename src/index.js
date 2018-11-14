@@ -11,6 +11,7 @@ import FlowCoverage from './flowCoverage';
 import Coverage from './coverage';
 
 function log(...args: Array<any>) {
+    // eslint-disable-next-line no-console
     console.log(chalk.cyan('blueflag-tests'), ...args);
 }
 

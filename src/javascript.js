@@ -4,7 +4,7 @@ module.exports = {
         'newline-per-chained-call': ["error", {"ignoreChainWithDepth": 3}],
         'object-curly-spacing': 2,
         'space-in-parens': 2,
-        'no-console': 0,
+        'no-console': 2,
         indent: [2, 4, {
             SwitchCase: 1
         }],

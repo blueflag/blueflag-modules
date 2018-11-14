@@ -61,6 +61,7 @@ export default function Coverage(program: Object): Promise<*> {
                     cwd
                 })
                 .on('exit', process.exit)
+                // eslint-disable-next-line no-console
                 .on('error', err => console.log(err));
 
         });

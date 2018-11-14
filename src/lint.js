@@ -27,6 +27,7 @@ export default function Lint({monorepo, singleFile}: Object): Object {
 
     var report = cli.executeOnFiles(src);
     var formatter = cli.getFormatter('stylish');
+    // eslint-disable-next-line no-console
     console.log(formatter(report.results));
 
     if(report.errorCount > 0) {

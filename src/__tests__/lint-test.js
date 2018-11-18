@@ -1,8 +1,7 @@
 //@flow
-import test from 'ava';
 import lint from '../lint';
 
-test('lint will apply the chosen config', (tt: Object) => {
+test('lint will apply the chosen config', () => {
     const config = lint({}).config;
-    tt.is(config.options.baseConfig.baseDirectory, process.cwd());
+    expect(config.options.baseConfig.baseDirectory).toBe(process.cwd());
 });

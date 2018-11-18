@@ -4,7 +4,6 @@
 import commander from 'commander';
 import chalk from 'chalk';
 
-import Test from './test';
 import Lint from './lint';
 import Flow from './flow';
 import FlowCoverage from './flowCoverage';
@@ -40,16 +39,6 @@ commander
     .action((singleFile: string, {require, monorepo}: Object): ?Promise<*> => {
         log('Running linter');
         return Lint({singleFile, require, monorepo});
-    });
-
-commander
-    .command('test')
-    .arguments('[glob]')
-    .option('-r --require <string>')
-    .option('-M --monorepo')
-    .action((glob: string, {require, monorepo}: Object): ?Promise<*> => {
-        log('Running tests');
-        return Test({glob, require, monorepo});
     });
 
 commander

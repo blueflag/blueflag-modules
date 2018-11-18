@@ -1,18 +1,13 @@
 //@flow
-import test from 'ava';
-import {stub} from 'sinon';
+import flow from '../flow';
+import ChildProcess from 'child_process';
 
-const proxyquire = require('proxyquire').noCallThru();
+jest.mock('child_process', () => ({
+    spawn: jest.fn().mockImplementation(() => ({on: jest.fn()}))
+}));
 
-const flowSpy = stub().callsFake(() => ({on: () => {}}));
 
-const flow = proxyquire('../flow', {
-    'child_process': {
-        spawn: flowSpy
-    }
-}).default;
-
-test('flow will call esflow ChildProcess.spawn', (tt: Object) => {
+test('flow will call esflow ChildProcess.spawn', () => {
     flow();
-    tt.is(flowSpy.callCount, 1);
+    expect(ChildProcess.spawn).toHaveBeenCalled();
 });

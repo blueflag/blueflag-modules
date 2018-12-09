@@ -31,8 +31,7 @@ describe('successful linting', () => {
                     'eslint-config-blueflag',
                     'eslint-config-blueflag/react',
                     'eslint-config-blueflag/flow'
-                ],
-
+                ]
             }
         });
     });

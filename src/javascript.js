@@ -10,6 +10,6 @@ module.exports = {
         }],
         "semi": [2, "always"],
         "comma-dangle": [2, "never"],
-        "ignore-rest-siblings": true
+        "no-unused-vars": ["error", { "ignoreRestSiblings": true }]
     }
 }

@@ -4,11 +4,9 @@
 import commander from 'commander';
 import chalk from 'chalk';
 
-import Test from './test';
 import Lint from './lint';
 import Flow from './flow';
 import FlowCoverage from './flowCoverage';
-import Coverage from './coverage';
 
 function log(...args: Array<any>) {
     // eslint-disable-next-line no-console
@@ -40,26 +38,6 @@ commander
     .action((singleFile: string, {require, monorepo}: Object): ?Promise<*> => {
         log('Running linter');
         return Lint({singleFile, require, monorepo});
-    });
-
-commander
-    .command('test')
-    .arguments('[glob]')
-    .option('-r --require <string>')
-    .option('-M --monorepo')
-    .action((glob: string, {require, monorepo}: Object): ?Promise<*> => {
-        log('Running tests');
-        return Test({glob, require, monorepo});
-    });
-
-commander
-    .command('coverage')
-    .arguments('[testCommand...]')
-    .option('-m --min-coverage <n>')
-    .option('-M --monorepo')
-    .action((testCommand: string[], {minCoverage, monorepo}: Object): ?Promise<*> => {
-        log('Running coverage');
-        return Coverage({testCommand, minCoverage, monorepo});
     });
 
 

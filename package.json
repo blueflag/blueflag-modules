@@ -21,49 +21,40 @@
     "url": "https://github.com/blueflag/blueflag-test/issues"
   },
   "scripts": {
-    "build": "rm -rf lib && babel src --out-dir lib --copy-files --ignore **/*-test.js",
+    "build": "rm -rf lib && babel src --out-dir lib --ignore \"**/__tests__/**\" --verbose",
     "prepublish": "yarn run build",
     "watch": "yarn run build -- -w",
-    "docs": "jsdoc -c jsdoc.json",
     "flow": "./scripts/run flow",
     "lint": "./scripts/run lint",
     "lint-fix": "eslint src --ext js,jsx --fix",
-    "test": "./scripts/run test",
-    "coverage": "./scripts/run coverage -m 75",
-    "test-all": "NODE_ENV=test yarn run lint && yarn run flow && yarn run coverage"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.23.0",
-    "jsdoc": "^3.4.3",
-    "jsdoc-babel": "^0.3.0",
-    "jsdoc-react-proptypes": "^1.0.2",
-    "jsdonk": "^0.7.0"
+    "test": "yarn jest",
+    "test-all": "yarn lint && yarn flow && yarn test"
   },
   "dependencies": {
-    "app-module-path": "^2.2.0",
-    "ava": "^0.25.0",
-    "babel-core": "^6.26.3",
-    "babel-jest": "^23.2.0",
-    "babel-preset-blueflag": "^0.6.0",
-    "babel-register": "^6.23.0",
-    "chalk": "^2.1.0",
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
+    "@babel/register": "^7.0.0",
+    "@babel/runtime": "^7.2.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "babel-preset-blueflag": "^1.0.0",
+    "chalk": "^2.4.1",
     "commander": "^2.11.0",
     "dotenv": "^4.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-matchers": "^6.0.2",
     "eslint": "^4.7.2",
-    "eslint-config-blueflag": "^0.9.0",
+    "eslint-config-blueflag": "^0.10.0",
     "eslint-plugin-flowtype": "^2.36.0",
+    "eslint-plugin-jest": "^22.0.0",
     "eslint-plugin-react": "^7.4.0",
     "flow-bin": "^0.76.0",
     "flow-coverage-report": "^0.5.0",
     "fs-extra": "^6.0.0",
-    "jest": "^23.3.0",
-    "jest-environment-enzyme": "^6.0.2",
-    "jest-enzyme": "^6.0.2",
-    "nyc": "^11.7.2",
-    "proxyquire": "^1.7.10",
-    "sinon": "^5.0.7"
-  }
+    "jest": "^23.6.0",
+    "jest-environment-enzyme": "^7.0.0",
+    "jest-enzyme": "^7.0.0"
+  },
+  "devDependencies": {}
 }

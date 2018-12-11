@@ -21,19 +21,20 @@
     "url": "https://github.com/blueflag/blueflag-test/issues"
   },
   "scripts": {
-    "build": "rm -rf lib && babel src --out-dir lib --copy-files --ignore **/*-test.js",
+    "build": "rm -rf lib && babel src --out-dir lib --ignore \"**/__tests__/**\" --verbose",
     "prepublish": "yarn run build",
     "watch": "yarn run build -- -w",
     "flow": "./scripts/run flow",
     "lint": "./scripts/run lint",
     "lint-fix": "eslint src --ext js,jsx --fix",
-    "test": "yarn jest"
+    "test": "yarn jest",
+    "test-all": "yarn lint && yarn flow && yarn test"
   },
   "dependencies": {
-    "@babel/cli": "^7.1.2",
-    "@babel/core": "^7.1.2",
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
     "@babel/register": "^7.0.0",
-    "@babel/runtime": "^7.1.2",
+    "@babel/runtime": "^7.2.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-preset-blueflag": "^1.0.0",

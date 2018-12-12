@@ -9,6 +9,7 @@ module.exports = {
             SwitchCase: 1
         }],
         "semi": [2, "always"],
-        "comma-dangle": [2, "never"]
+        "comma-dangle": [2, "never"],
+        "no-unused-vars": ["error", { "ignoreRestSiblings": true }]
     }
 }

@@ -4,17 +4,13 @@
 .DS_Store
 .env
 .nyc_output
-.cache
-*.orig
-*.log
+.yalc
 yalc.lock
-tags*
+*.log
 
 # Folders
-coverage
-flow-coverage
-dist
 lib
-**/node_modules
-public
-.yalc
+coverage
+dist
+docs
+node_modules

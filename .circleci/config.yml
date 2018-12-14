@@ -1,24 +1,34 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/blueflag-test
+    working_directory: ~/repo
     docker:
-      - image: blueflag/circle-node:0.0.5
+      - image: blueflag/client-build:0.0.7
 
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "yarn.lock" }}
-            - v1-dependencies-
-      - run: yarn install
-      - save_cache:
-          paths:
-            - node_modules
-            - example/node_modules
-          key: v1-dependencies-{{ checksum "yarn.lock" }}
 
-      # run tests!
-      - run: yarn run build
-      - run: test -z "$(git status --porcelain)"
+      - restore_cache:
+          keys: ['v1-root-{{ checksum "yarn.lock" }}']
+      - restore_cache:
+          keys: ['v1-blueflag-test-{{ checksum "yarn.lock" }}']
+
+      - run: yarn install
+      - run: yarn lerna bootstrap
+
+      - save_cache:
+          key: v1-root-{{ checksum "yarn.lock" }}
+          paths: ['node_modules']
+
+      - save_cache:
+          key: v1-blueflag-test-{{ checksum "yarn.lock" }}
+          paths: ['packages/blueflag-test/node_modules']
+
       - run: yarn test-all
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build:
+          context: org-global

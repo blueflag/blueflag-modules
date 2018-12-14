@@ -1,7 +1,7 @@
 {
-  "name": "blueflag-modules",
+  "name": "blueflag-devops",
   "version": "0.0.0",
-  "repository": "https://github.com/blueflag/blueflag-modules",
+  "repository": "https://github.com/blueflag/blueflag-devops",
   "license": "UNLICENSED",
   "private": true,
   "scripts": {

@@ -8,6 +8,6 @@
     "test-all": "lerna run test-all --concurrency 2"
   },
   "devDependencies": {
-    "lerna": "^3.5.1"
+    "lerna": "^3.10.7"
   }
 }

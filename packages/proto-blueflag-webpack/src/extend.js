@@ -1,13 +1,10 @@
 //@flow
+import type {Options} from './config';
+
 import merge from 'webpack-merge';
 import config from './config';
 
 // @intent configure the extend function like a hoc
-// I wanted Config but that was taken by the config file
-type Options = {
-    name: string,
-    mode: 'production' | 'development'
-};
 
 /*
  * @intent

@@ -5,7 +5,8 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "test-all": "lerna run test-all --concurrency 2"
+    "test-all": "lerna run test-all --concurrency 2",
+    "bootstrap": "lerna bootstrap"
   },
   "devDependencies": {
     "lerna": "^3.10.7"

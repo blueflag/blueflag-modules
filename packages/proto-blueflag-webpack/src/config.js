@@ -60,7 +60,7 @@ export default function config({name, mode, dirname}: *): * {
     const build = path.join(dirname, 'build');
 
     const CSS_LOADER = {
-        test: /\.scss?$/,
+        test: /\.s?css$/,
         include: path.resolve('./src'),
         use: [
             // extract to file or style tag

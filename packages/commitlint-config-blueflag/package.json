@@ -1,0 +1,19 @@
+{
+  "name": "commitlint-config-blueflag",
+  "files": [
+    "lib"
+  ],
+  "main": "index.js",
+  "version": "0.0.0",
+  "description": "Blueflag standard commitlint config",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:blueflag/blueflag-devops.git"
+  },
+  "bugs": {
+    "url": "https://github.com/blueflag/blueflag-devops/issues"
+  },
+  "keywords": [],
+  "author": "Damien Clarke",
+  "license": "MIT"
+}

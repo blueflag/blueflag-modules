@@ -78,19 +78,6 @@ echo "fix(SCOPE): some message" # fails
 echo "fix(scope): some message" # passes
 ```
 
-#### subject-case
-* **condition**: `subject` is in one of the cases `['sentence-case', 'start-case', 'pascal-case', 'upper-case']`
-* **rule**: `never`
-
-```sh
-echo "fix(SCOPE): Some message" # fails
-echo "fix(SCOPE): Some Message" # fails
-echo "fix(SCOPE): SomeMessage" # fails
-echo "fix(SCOPE): SOMEMESSAGE" # fails
-echo "fix(scope): some message" # passes
-echo "fix(scope): some Message" # passes
-```
-
 #### subject-empty
 * **condition**: `subject` is empty
 * **rule**: `never`

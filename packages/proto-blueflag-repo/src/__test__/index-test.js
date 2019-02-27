@@ -9,9 +9,13 @@ function stubFile() {
     const ProtectSpy = spy();
 
     const stub = {
+        './BranchRestrictionPush': spy(),
         './Create': CreateSpy,
         './Delete': DeleteSpy,
-        './Protect': ProtectSpy
+        './Protect': ProtectSpy,
+        './SetTeam': spy(),
+        './TestCommand': spy(),
+        './service/Github': spy()
     };
 
     proxyquire('../index', stub);

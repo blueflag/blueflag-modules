@@ -14,5 +14,5 @@ function stubFile(): Function {
 }
 
 test('TestCommand returns a promise', (tt: Object): Promise<any> => {
-    return stubFile()(Promise.resolve).then(() => tt.pass());
+    return stubFile()(() => Promise.resolve()).then(() => tt.pass());
 });

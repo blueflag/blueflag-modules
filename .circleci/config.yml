@@ -7,7 +7,7 @@ commands:
         type: string
     steps:
       - restore_cache:
-          name: Restoring <<parameters.scope>>
+          name: 'Restoring <<parameters.scope>>'
           keys: ['v2-{{ checksum "packages/<<parameters.scope>>/yarn.lock" }}']
   save:
     parameters:
@@ -15,44 +15,41 @@ commands:
         type: string
     steps:
       - save_cache:
-          name: Saving <<parameters.scope>>
-          key: v2-{{ checksum "packages/<<parameters.scope>>/yarn.lock" }}
+          name: 'Saving <<parameters.scope>>'
+          key: 'v2-{{ checksum "packages/<<parameters.scope>>/yarn.lock" }}'
           paths: ['packages/<<parameters.scope>>/node_modules']
 
 jobs:
   test:
     working_directory: ~/repo
     docker:
-      - image: blueflag/client-build:0.0.7
+      - image: 'blueflag/client-build:0.0.7'
 
     steps:
-      - checkout
+      - 'checkout'
 
       - restore_cache: {name: 'Restoring Root', keys: ['v2-checksum "yarn.lock" }}']}
       - restore: {scope: 'babel-preset-blueflag'}
       - restore: {scope: 'blueflag-test'}
       - restore: {scope: 'eslint-config-blueflag'}
-      - restore: {scope: 'proto-blueflag-repo'}
       - restore: {scope: 'proto-blueflag-webpack'}
 
-      - run: yarn install
-      - run: yarn lerna bootstrap
+      - run: 'yarn prep'
 
       - save_cache: {name: 'Saving Root', key: 'v2-{{ checksum "yarn.lock" }}', paths: ['node_modules']}
       - save: {scope: 'babel-preset-blueflag'}
       - save: {scope: 'blueflag-test'}
       - save: {scope: 'eslint-config-blueflag'}
-      - save: {scope: 'proto-blueflag-repo'}
       - save: {scope: 'proto-blueflag-webpack'}
 
-      - run: yarn test-all
+      - run: 'yarn test-all'
 
 workflows:
   version: 2
   testPackages:
     jobs:
       - test:
-          context: org-global
+          context: 'org-global'
 
 
 

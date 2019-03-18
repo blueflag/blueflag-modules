@@ -6,6 +6,7 @@
   "private": true,
   "scripts": {
     "test-all": "lerna run test-all --concurrency 2",
+    "_lint": "lerna run lint --concurrency 2",
     "prep": "lerna bootstrap"
   },
   "devDependencies": {

@@ -24,7 +24,8 @@ module.exports = {
                 // fixing a bug that exists in code that hasn't yet been released or deployed
                 // (its not a fix if the thing being fixed has never been released)
                 'refactor',
-                // changing code that results in no change to the public API or to any behaviour
+                // changes that don't affect the api or behaviour of executing code.
+                // e.g. style, performance, linting, internal flow types, merge commits.
                 'test',
                 // a commit specifically for adding tests
                 'docs',

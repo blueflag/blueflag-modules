@@ -22,7 +22,7 @@
   },
   "scripts": {
     "build": "rm -rf lib && babel src --out-dir lib --ignore \"**/__tests__/**\" --verbose",
-    "prepublish": "yarn run build",
+    "prepublishOnly": "yarn run build",
     "watch": "yarn run build -- -w",
     "flow": "./scripts/run flow",
     "lint": "./scripts/run lint",

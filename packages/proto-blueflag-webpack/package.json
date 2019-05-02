@@ -1,7 +1,7 @@
 {
   "main": "lib/index.js",
   "name": "@blueflag/proto-blueflag-webpack",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "An opinionated webpack config",
   "license": "MIT",
   "author": "Allan Hortle",
@@ -30,13 +30,13 @@
     "@babel/cli": "^7.1.2",
     "@babel/plugin-proposal-export-default-from": "^7.0.0",
     "babel-plugin-extract-flow-types": "^1.0.1",
-    "blueflag-test": "^0.22.0"
+    "blueflag-test": "^0.22.1"
   },
   "dependencies": {
     "@babel/core": "^7.1.2",
     "autoprefixer": "^9.1.5",
     "babel-loader": "^8.0.4",
-    "babel-preset-blueflag": "^1.0.0",
+    "babel-preset-blueflag": "^1.0.1",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
     "file-loader": "^2.0.0",

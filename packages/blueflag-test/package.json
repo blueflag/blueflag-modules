@@ -9,7 +9,7 @@
     "blueflag-test": "lib/index.js"
   },
   "name": "blueflag-test",
-  "version": "0.22.0",
+  "version": "0.22.1",
   "description": "An oppinionated set of linting and testing tools",
   "license": "MIT",
   "author": "Allan Hortle",
@@ -37,7 +37,7 @@
     "@babel/runtime": "^7.2.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
-    "babel-preset-blueflag": "^1.0.0",
+    "babel-preset-blueflag": "^1.0.1",
     "chalk": "^2.4.1",
     "commander": "^2.11.0",
     "dotenv": "^4.0.0",
@@ -55,6 +55,5 @@
     "jest": "^23.6.0",
     "jest-environment-enzyme": "^7.0.0",
     "jest-enzyme": "^7.0.0"
-  },
-  "devDependencies": {}
+  }
 }

@@ -82,7 +82,7 @@ export default function config(options: Options): * {
 
     // @INTENT: load sass files
     const CSS_LOADER = {
-        test: /\.scss?$/,
+        test: /\.s?css$/,
         include,
         use: [
             // extract to file or style tag

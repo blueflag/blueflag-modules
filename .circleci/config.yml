@@ -1,34 +1,55 @@
-version: 2
+version: 2.1
+
+commands:
+  restore:
+    parameters:
+      scope:
+        type: string
+    steps:
+      - restore_cache:
+          name: 'Restoring <<parameters.scope>>'
+          keys: ['v2-{{ checksum "packages/<<parameters.scope>>/yarn.lock" }}']
+  save:
+    parameters:
+      scope:
+        type: string
+    steps:
+      - save_cache:
+          name: 'Saving <<parameters.scope>>'
+          key: 'v2-{{ checksum "packages/<<parameters.scope>>/yarn.lock" }}'
+          paths: ['packages/<<parameters.scope>>/node_modules']
+
 jobs:
-  build:
+  test:
     working_directory: ~/repo
     docker:
-      - image: blueflag/client-build:0.0.7
+      - image: 'blueflag/client-build:0.0.7'
 
     steps:
-      - checkout
+      - 'checkout'
 
-      - restore_cache:
-          keys: ['v1-root-{{ checksum "yarn.lock" }}']
-      - restore_cache:
-          keys: ['v1-blueflag-test-{{ checksum "yarn.lock" }}']
+      - restore_cache: {name: 'Restoring Root', keys: ['v2-checksum "yarn.lock" }}']}
+      - restore: {scope: 'babel-preset-blueflag'}
+      - restore: {scope: 'blueflag-test'}
+      - restore: {scope: 'eslint-config-blueflag'}
+      - restore: {scope: 'proto-blueflag-webpack'}
 
-      - run: yarn install
-      - run: yarn lerna bootstrap
+      - run: 'yarn prep'
 
-      - save_cache:
-          key: v1-root-{{ checksum "yarn.lock" }}
-          paths: ['node_modules']
+      - save_cache: {name: 'Saving Root', key: 'v2-{{ checksum "yarn.lock" }}', paths: ['node_modules']}
+      - save: {scope: 'babel-preset-blueflag'}
+      - save: {scope: 'blueflag-test'}
+      - save: {scope: 'eslint-config-blueflag'}
+      - save: {scope: 'proto-blueflag-webpack'}
 
-      - save_cache:
-          key: v1-blueflag-test-{{ checksum "yarn.lock" }}
-          paths: ['packages/blueflag-test/node_modules']
-
-      - run: yarn test-all
+      - run: 'yarn test-all'
 
 workflows:
   version: 2
-  build:
+  testPackages:
     jobs:
-      - build:
-          context: org-global
+      - test:
+          context: 'org-global'
+
+
+

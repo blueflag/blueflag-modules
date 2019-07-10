@@ -1,6 +1,9 @@
 {
   "name": "blueflag-devops",
   "version": "0.0.0",
+  "release": {
+    "name": "AnguishedParrot"
+  },
   "repository": "https://github.com/blueflag/blueflag-devops",
   "license": "UNLICENSED",
   "private": true,

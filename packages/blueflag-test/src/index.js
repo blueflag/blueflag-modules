@@ -40,5 +40,9 @@ commander
         return Lint({singleFile, require, monorepo});
     });
 
+commander.on('command:*', () => {
+    log(`Invalid command: ${commander.args.join(' ')}\nSee --help for a list of available commands.`);
+    process.exit(1);
+});
 
 commander.parse(process.argv);

@@ -59,7 +59,7 @@ export default function config(options: Options): * {
 
     // @INTENT: load image files and assets
     const FILE_LOADER = {
-        test: /\.(png|svg|jpg|gif|ttf|woff|woff2|eot|otf|ico)$/,
+        test: /\.(png|svg|jpg|gif|ttf|woff|woff2|eot|otf|ico|pdf)$/,
         include,
         use: {
             loader: 'file-loader',

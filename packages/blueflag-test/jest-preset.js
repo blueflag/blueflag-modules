@@ -8,5 +8,9 @@ module.exports = {
     ],
     coverageReporters: ["json", "lcov", "text-summary"],
     setupTestFrameworkScriptFile: "jest-enzyme",
-    testEnvironment: "enzyme"
+    testEnvironment: "enzyme",
+    testMatch: [
+        "**/__tests__/**/*-test.js?(x)",
+        "**/__test__/**/*-test.js?(x)"
+    ]
 };

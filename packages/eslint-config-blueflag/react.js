@@ -1,10 +1,15 @@
 module.exports = {
     plugins: [
-        "react"
+        'react'
     ],
-    "extends": [
-        "plugin:react/recommended",
+    extends: [
+        'plugin:react/recommended',
     ],
+    settings: {
+        react: {
+            version: 'detect'
+        }
+    }
     rules: {
         // React
         'react/no-danger': 0,

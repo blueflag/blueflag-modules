@@ -3,7 +3,7 @@ var react = require('@babel/preset-react');
 var flow = require('@babel/preset-flow');
 var transformRuntime = require('@babel/plugin-transform-runtime');
 var transfromClassProperties = require('@babel/plugin-proposal-class-properties');
-
+var graphqlTag = require('babel-plugin-graphql-tag');
 
 module.exports = function(context, options) {
     options = options || {};
@@ -54,6 +54,14 @@ module.exports = function(context, options) {
         plugins.push([
             transfromClassProperties,
             config['transform-class-properties']
+        ]);
+    }
+
+    // graphql-tag
+    if(disabled.indexOf('graphql-tag') === -1) {
+        plugins.push([
+            graphqlTag,
+            config['graphql-tag']
         ]);
     }
 

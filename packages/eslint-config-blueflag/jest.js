@@ -1,12 +1,17 @@
 module.exports = {
-    "plugins": [
+    plugins: [
         "jest"
     ],
-    "env": {
-        "jest": true
+    env: {
+        jest: true
     },
-    "rules": {
+    globals: {
+        mount: true,
+        shallow: true,
+        render: true,
+    },
+    rules: {
         "jest/no-disabled-tests": "error",
-        "jest/no-focused-tests": "error"   
+        "jest/no-focused-tests": "error"
     }
 };

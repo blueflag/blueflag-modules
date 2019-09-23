@@ -11,9 +11,11 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import autoprefixer from 'autoprefixer';
+import * as loaders from './loaders';
 
 export type Options = {
     name: string,
+    configType: 'client' | 'server',
     mode: 'production' | 'development',
     environment: *,
     src: string,
@@ -23,12 +25,14 @@ export type Options = {
 
 export default function config(options: Options): * {
     let {
+        configType = 'client',
         name,
         mode,
         environment,
         src,
         dest,
-        loaderPaths = []
+        loaderPaths = [],
+        loaders
     } = options;
 
     const production = mode === 'production';
@@ -38,78 +42,13 @@ export default function config(options: Options): * {
         ...loaderPaths
     ];
 
-    // @INTENT: use babel on js/jsx files
-    const JS_LOADER = {
-        test: /\.jsx?$/,
-        include,
-        use: {
-            loader: 'babel-loader',
-            options: {
-                cacheDirectory: true
-            }
-        }
-    };
-
-    // @INTENT: load graphql files raw style
-    const GRAPHQL_LOADER = {
-        test: /\.graphql$/,
-        include,
-        use: 'raw-loader'
-    };
-
-    // @INTENT: load image files and assets
-    const FILE_LOADER = {
-        test: /\.(png|svg|jpg|gif|ttf|woff|woff2|eot|otf|ico|pdf)$/,
-        include,
-        use: {
-            loader: 'file-loader',
-            options: {
-                name: 'assets/[hash].[ext]'
-            }
-        }
-    };
-
-    const POSTCSS_LOADER = {
-        loader: 'postcss-loader',
-        options: {
-            ident: 'postcss',
-            sourceMap: true,
-            plugins: () => [
-                autoprefixer({browsers: ['ie >= 9', 'last 2 versions']})
-            ]
-        }
-    };
-
-    // @INTENT: load sass files
-    const CSS_LOADER = {
-        test: /\.s?css$/,
-        include,
-        use: [
-            // extract to file or style tag
-            production
-                ? {
-                    loader: MiniCssExtractPlugin.loader
-                }
-                : {
-                    loader: 'style-loader',
-                    options: {
-                        sourceMap: true,
-                        convertToAbsoluteUrls: true
-                    }
-                },
-            'css-loader',
-            POSTCSS_LOADER,
-            'sass-loader'
-        ].filter(ii => ii)
-    };
-
     const stringEnvironment = Object.keys(environment)
         .reduce((env: {}, key: string): {} => {
             env[`process.env.${key}`] = JSON.stringify(environment[key]);
             return env;
         }, {});
 
-    return {
+    const baseConfig = {
         cache: production,
         devtool: production ? 'source-map' : undefined,
         entry: {
@@ -127,6 +66,18 @@ export default function config(options: Options): * {
             },
             extensions: ['.jsx', '.js']
         },
+    };
+
+    const clientConfig = {
+        module: {
+            rules: (config.loaders || [
+                'JS_LOADER',
+                'GRAPHQL_LOADER',
+                'FILE_LOADER',
+                'CSS_LOADER',
+                'POSTCSS_LOADER'
+            ]).map(ll => loaders[ll])
+        },
         plugins: [
             new webpack.DefinePlugin(stringEnvironment),
             production && new MiniCssExtractPlugin({
@@ -143,14 +94,6 @@ export default function config(options: Options): * {
             })
 
         ].filter(ii => ii),
-        module: {
-            rules: [
-                JS_LOADER,
-                GRAPHQL_LOADER,
-                FILE_LOADER,
-                CSS_LOADER
-            ]
-        },
         devServer: {
             host: process.env.HOST || environment.HOST || '0.0.0.0',
             port: process.env.PORT || environment.PORT || 3000,
@@ -161,4 +104,35 @@ export default function config(options: Options): * {
             historyApiFallback: true
         }
     };
+
+    const serverConfig = {
+        output: {
+            libraryTarget: 'commonjs2',
+            path: dest,
+            filename: '[name]-[hash].js',
+            chunkFilename: '[id]-[chunkhash].js'
+        },
+        module: {
+            rules: (config.loaders || [
+                'JS_LOADER',
+                'GRAPHQL_LOADER',
+            ]).map(ll => loaders[ll])
+        },
+        plugins: [
+            new webpack.DefinePlugin(stringEnvironment),
+            new CleanWebpackPlugin([dest], {
+                root: path.resolve(dest, '..'),
+                verbose: true,
+                allowExternal: true
+            }),
+            new webpack.IgnorePlugin(/\.flow$/),
+
+        ]
+    };
+
+    return {
+        ...baseConfig,
+        ...(configType === 'client' ? clientConfig : serverConfig)
+    };
+
 }

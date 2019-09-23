@@ -6,7 +6,7 @@ import FlowBin from 'flow-bin';
 
 export default function FlowCoverage(program: *): Promise<*> {
     const {monorepo = false} = program;
-    const {minCoverage = 50} = program;
+    const {minCoverage = 80} = program;
 
     const config = {
         reportTypes: ['text', 'html'],

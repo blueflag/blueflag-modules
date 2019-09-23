@@ -758,6 +758,12 @@ babel-plugin-dynamic-import-node@^2.3.0:
   dependencies:
     object.assign "^4.1.0"
 
+babel-plugin-extract-flow-types@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-extract-flow-types/-/babel-plugin-extract-flow-types-1.0.1.tgz#caf604d776783924f4dee0ae73ee6990b43956ef"
+  dependencies:
+    fs-extra "^4.0.1"
+
 babel-plugin-graphql-tag@^2.5.0:
   version "2.5.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-graphql-tag/-/babel-plugin-graphql-tag-2.5.0.tgz#2b2df0dc4b9638022d18868d03abe60117aaf38d"
@@ -839,6 +845,14 @@ esutils@^2.0.0, esutils@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/esutils/-/esutils-2.0.2.tgz#0abf4f1caa5bcb1f7a9d8acc6dea4faaa04bac9b"
 
+fs-extra@^4.0.1:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-4.0.3.tgz#0d852122e5bc5beb453fb028e9c0c9bf36340c94"
+  dependencies:
+    graceful-fs "^4.1.2"
+    jsonfile "^4.0.0"
+    universalify "^0.1.0"
+
 function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
@@ -846,6 +860,10 @@ function-bind@^1.1.1:
 globals@^11.1.0:
   version "11.8.0"
   resolved "https://registry.yarnpkg.com/globals/-/globals-11.8.0.tgz#c1ef45ee9bed6badf0663c5cb90e8d1adec1321d"
+
+graceful-fs@^4.1.2, graceful-fs@^4.1.6:
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.2.tgz#6f0952605d0140c1cfdb138ed005775b92d67b02"
 
 has-flag@^3.0.0:
   version "3.0.0"
@@ -886,6 +904,12 @@ json5@^2.1.0:
   resolved "https://registry.yarnpkg.com/json5/-/json5-2.1.0.tgz#e7a0c62c48285c628d20a10b85c89bb807c32850"
   dependencies:
     minimist "^1.2.0"
+
+jsonfile@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/jsonfile/-/jsonfile-4.0.0.tgz#8771aae0799b64076b76640fca058f9c10e33ecb"
+  optionalDependencies:
+    graceful-fs "^4.1.6"
 
 lodash@^4.17.10:
   version "4.17.11"
@@ -1049,3 +1073,7 @@ unicode-match-property-value-ecmascript@^1.1.0:
 unicode-property-aliases-ecmascript@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/unicode-property-aliases-ecmascript/-/unicode-property-aliases-ecmascript-1.0.4.tgz#5a533f31b4317ea76f17d807fa0d116546111dd0"
+
+universalify@^0.1.0:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/universalify/-/universalify-0.1.2.tgz#b646f69be3942dabcecc9d6639c80dc105efaa66"

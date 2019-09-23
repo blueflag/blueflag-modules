@@ -20,7 +20,8 @@ export type Options = {
     environment: *,
     src: string,
     dest: string,
-    loaderPaths?: string[]
+    loaderPaths?: string[],
+    loaders?: Array<$Keys<typeof loaders>>
 };
 
 export default function config(options: Options): * {

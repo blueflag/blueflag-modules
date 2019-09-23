@@ -29,7 +29,6 @@
   "devDependencies": {
     "@babel/cli": "^7.1.2",
     "@babel/plugin-proposal-export-default-from": "^7.0.0",
-    "babel-plugin-extract-flow-types": "^1.0.1",
     "blueflag-test": "^0.22.2"
   },
   "dependencies": {

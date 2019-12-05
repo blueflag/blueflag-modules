@@ -1,6 +1,10 @@
 {
     "presets": [
-        ["blueflag", {"browser": true, "library": true}]
+        ["blueflag", {
+            "browser": true,
+            "library": true,
+            "disabled": ["graphql-tag"]
+        }]
     ],
     "ignore": ["./lib"]
 }

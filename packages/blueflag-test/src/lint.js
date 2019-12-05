@@ -15,12 +15,13 @@ export default function Lint({monorepo, singleFile}: Object): Object {
     ;
 
     var cli = new CLIEngine({
+        cwd: process.cwd(),
         baseConfig: {
-            baseDirectory: process.cwd(),
             extends: [
                 "eslint-config-blueflag",
                 "eslint-config-blueflag/react",
-                "eslint-config-blueflag/flow"
+                "eslint-config-blueflag/flow",
+                "eslint-config-blueflag/jest"
             ]
         }
     });

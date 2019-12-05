@@ -4,7 +4,7 @@ var flow = require('@babel/preset-flow');
 var transformRuntime = require('@babel/plugin-transform-runtime');
 var transfromClassProperties = require('@babel/plugin-proposal-class-properties');
 var graphqlTag = require('babel-plugin-graphql-tag');
-var extractFlowType = require('babel-plugin-extract-flow-type');
+var extractFlowTypes = require('babel-plugin-extract-flow-types');
 
 module.exports = function(context, options) {
     options = options || {};
@@ -67,10 +67,10 @@ module.exports = function(context, options) {
     }
 
     // babel-plugin-extract-flow-type
-    if(disabled.indexOf('extract-flow-type') === -1) {
+    if(disabled.indexOf('extract-flow-types') === -1) {
         plugins.push([
-            extractFlowType,
-            config['extract-flow-type'] || {srcDir: 'src', outDir: 'lib'}
+            extractFlowTypes,
+            config['extract-flow-types'] || {srcDir: 'src', outDir: 'lib'}
         ]);
     }
 

@@ -9,7 +9,7 @@ module.exports = {
         react: {
             version: 'detect'
         }
-    }
+    },
     rules: {
         // React
         'react/no-danger': 0,

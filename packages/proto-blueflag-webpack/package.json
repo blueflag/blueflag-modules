@@ -7,10 +7,10 @@
   "author": "Allan Hortle",
   "repository": {
     "type": "git",
-    "url": "git@github.com:blueflag/proto-blueflag-webpack.git"
+    "url": "git@github.com:blueflag/blueflag-devops.git"
   },
   "bugs": {
-    "url": "https://github.com/blueflag/proto-blueflag-webpack/issues"
+    "url": "https://github.com/blueflag/blueflag-devops/issues"
   },
   "files": [
     "lib"
